@@ -10,6 +10,10 @@ RUN apt-get update && apt-get upgrade -y
 # pnpm package manager
 RUN npm install -g --exact pnpm@9.0.6 
 
+# tools
+RUN apt-get install make -y
+RUN apt-get install git -y
+
 # Expose the port your app runs on
 EXPOSE 8080
 
