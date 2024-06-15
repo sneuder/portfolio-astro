@@ -1,5 +1,5 @@
-import {Position, type Experience} from '@/models/experience'
-import {STACK_CATEGORY, STACK_LANGUAGES} from '@/models/stack'
+import { Position, type Experience } from '@/models/experience'
+import { STACK_CATEGORY, STACK_LANGUAGES } from '@/models/stack'
 
 const experience: Experience[] = [
   {
