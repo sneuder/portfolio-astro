@@ -15,4 +15,3 @@ EXPOSE 8080
 
 # Command to run your application
 CMD ["sleep", "infinity"]
-
