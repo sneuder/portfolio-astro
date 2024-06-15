@@ -1,0 +1,16 @@
+version: '3.8'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - '4321:4321'
+    volumes:
+      - .:/app
+    networks:
+      - portfolio
+
+networks:
+  portfolio:
+    driver: bridge
