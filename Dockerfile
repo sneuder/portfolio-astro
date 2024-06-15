@@ -8,7 +8,7 @@ WORKDIR /app
 RUN apt-get update && apt-get upgrade -y
 
 # pnpm package manager
-RUN npm install -g --exact pnpm 
+RUN npm install -g --exact pnpm@9.0.6 
 
 # Expose the port your app runs on
 EXPOSE 8080
