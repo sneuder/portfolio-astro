@@ -1,0 +1,35 @@
+---
+export interface Props {
+  src: string
+  alt: string
+  redirect?: {
+    href: string
+  }
+}
+
+const { src, alt, redirect } = Astro.props
+const setDefault = !redirect
+---
+
+{
+  redirect && (
+    <a href={redirect.href}>
+      <img src={src} alt={alt} />
+    </a>
+  )
+}
+
+{setDefault && <img src={src} alt={alt} />}
+
+<style>
+  img {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+  }
+
+  a {
+    height: 25px;
+  }
+</style>
