@@ -1,31 +1,62 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
+import NavBar from './NavBar.astro'
+
 interface Props {
-	title: string;
+  title: string
 }
 
-const { title } = Astro.props;
+const { title } = Astro.props
 ---
 
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='description' content='Astro description' />
+    <meta name='viewport' content='width=device-width' />
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+    <meta name='generator' content={Astro.generator} />
+
+    <link rel='preconnect' href='https://fonts.googleapis.com' />
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+    <link
+      href='https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap'
+      rel='stylesheet'
+    />
+
+    <ViewTransitions />
+    <title>{title}</title>
+  </head>
+  <body>
+    <NavBar />
+    <slot />
+    <style is:global>
+      * {
+        padding: 0;
+        margin: 0;
+        outline: 0;
+        border: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+				font-family: "Montserrat", sans-serif;
+      }
+
+      *:visited {
+        color: #000000;
+      }
+
+      body {
+        padding: 1rem;
+      }
+
+      @font-face {
+        font-family: 'DistantGalaxy';
+        src: url('/fonts/DistantGalaxy.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style>
+  </body>
 </html>
-<style is:global>
-	* {
-		padding: 0;
-		margin: 0;
-		outline: 0;
-		border: 0;
-		box-sizing: border-box;
-	}
-</style>

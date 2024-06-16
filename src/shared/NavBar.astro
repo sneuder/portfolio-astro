@@ -1,0 +1,54 @@
+---
+interface NavItem {
+  name: string
+  href: string
+}
+
+const navItems: NavItem[] = [
+  {
+    name: 'About',
+    href: '/about',
+  },
+  {
+    name: 'Experience',
+    href: '/experience',
+  },
+  {
+    name: 'Projects',
+    href: '/projects',
+  },
+]
+---
+
+<div class='container-navbar'>
+  <nav>
+    <div class='container-navbar-items'>
+      {navItems.map((item) => <a href={item.href}>{item.name}</a>)}
+    </div>
+  </nav>
+</div>
+
+<style>
+  .container-navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  nav {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 2rem;
+    padding: 0.5rem 1.5rem;
+  }
+
+  .container-navbar-items {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+      font-weight: 600;
+      font-size: 0.7rem;
+    }
+  }
+</style>
