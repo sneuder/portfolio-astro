@@ -1,0 +1,24 @@
+---
+import Paragraph, {
+  type Props as ParagraphProps,
+} from './typography/Paragraph.astro'
+import { TypographyType } from './typography/schema'
+
+const currentYear = new Date().getFullYear()
+
+const paragraphsProps: ParagraphProps = {
+  title: `© ${currentYear} Esneider Ospina. All rights reserved.`,
+  type: TypographyType.TERTIARY,
+}
+---
+
+<footer>
+  <Paragraph title={paragraphsProps.title} type={paragraphsProps.type} />
+</footer>
+
+<style>
+  footer {
+    display: flex;
+    justify-content: center;
+  }
+</style>

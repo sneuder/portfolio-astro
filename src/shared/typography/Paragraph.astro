@@ -1,5 +1,6 @@
 ---
 import { type BasicProps, TypographyType } from './schema'
+import COLORS from '@/theme/colors'
 
 export interface Props extends BasicProps {}
 
@@ -20,6 +21,11 @@ const collectionStyles: CollectionStyles = {
     lineHeight: '1.7rem',
     fontSize: '1rem',
     color: '#000000',
+  },
+  [TypographyType.TERTIARY]: {
+    lineHeight: '1.5rem',
+    fontSize: '0.875rem',
+    color: COLORS.LIGHT_GREY,
   },
 }
 
