@@ -17,7 +17,7 @@ const { navItems, avatar } = Astro.props
 <div class='container-navbar'>
   {
     avatar && (
-      <Avatar src={avatar.src} alt={avatar.alt} redirect={avatar.redirect} />
+      <Avatar src={avatar.src} alt={avatar.alt} redirect={avatar.redirect} size={avatar.size}/>
     )
   }
 
