@@ -1,0 +1,17 @@
+---
+import { type BasicProps, TypographyType } from './schema'
+
+export interface Props extends BasicProps {}
+
+const { title, type } = Astro.props
+---
+
+{TypographyType.PRIMARY === type && <h1>{title}</h1>}
+{TypographyType.SECONDARY === type && <h2>{title}</h2>}
+{TypographyType.TERTIARY === type && <h3>{title}</h3>}
+
+<style>
+  h1 {
+    font-size: 3rem;
+  }
+</style>
