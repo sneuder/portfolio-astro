@@ -1,0 +1,31 @@
+---
+import Avatar, { type Props as AvatarProps } from '@/shared/Avatar.astro'
+import Header, {
+  type Props as HeaderProps,
+} from '@/shared/typography/Header.astro'
+import Paragraph, {
+  type Props as ParagraphProps,
+} from '@/shared/typography/Paragraph.astro'
+import { TypographyType } from '@/shared/typography/schema'
+
+const avatarProps: AvatarProps = {
+  src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7GNQhrlzrEWBt4hyfc5Nz5VI_FA5n4k0Sbg&s',
+  alt: 'My avatar',
+  size: '64px',
+}
+
+const headerProps: HeaderProps = {
+  title:
+    'Node.js Expert, Go Developer Advocate, Creator, and Lifelong Innovator',
+  type: TypographyType.PRIMARY,
+}
+
+const paragraphProps: ParagraphProps = {
+  title:
+    "🤘🏻 Hello! My name is Esneider Ospina, Node.js Expert, Go Developer Advocate, and Lifelong Innovator based in Colombia. I created this website as a place to document my journey as I learn new things and share them with you. While I haven’t published any blog posts yet, stay tuned because they're coming soon! I have a passion for learning and creating new ways to solve problems. When I'm not coding, I enjoy playing sports like handball and volleyball. I hope that my future content will help you solve a problem or learn something new.",
+  type: TypographyType.PRIMARY,
+}
+---
+<Avatar src={avatarProps.src} alt={avatarProps.alt} size={avatarProps.size} />
+<Header title={headerProps.title} type={headerProps.type} />
+<Paragraph title={paragraphProps.title} type={headerProps.type} />
