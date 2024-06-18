@@ -9,7 +9,7 @@ import {
 
 export interface Props extends BasicProps {}
 
-const { title, type } = Astro.props
+const { title, type, format } = Astro.props
 
 const collectionStyles: CollectionStyles = {
   [TypographyType.PRIMARY]: {
@@ -22,14 +22,26 @@ const collectionStyles: CollectionStyles = {
     fontSize: '1.25rem',
     color: COLORS.GREY,
   },
+  [TypographyType.TERTIARY]: {
+    lineHeight: '1.5rem',
+    fontSize: '0.875rem',
+    color: COLORS.GREY,
+  },
+  [TypographyType.QUATERNARY]: {
+    lineHeight: '1.5rem',
+    fontSize: '0.875rem',
+    color: COLORS.GREY,
+  },
 }
 
 const selectedStyle = collectionStyles[type] as CollectionStyle
+const nowrap = !!format?.noWrap
 ---
 
-{TypographyType.PRIMARY === type && <h1>{title}</h1>}
-{TypographyType.SECONDARY === type && <h2>{title}</h2>}
-{TypographyType.TERTIARY === type && <h3>{title}</h3>}
+{TypographyType.PRIMARY === type && <h1 class:list={[{ nowrap }]}>{title}</h1>}
+{TypographyType.SECONDARY === type && <h2 class:list={[{ nowrap }]}>{title}</h2>}
+{TypographyType.TERTIARY === type && <h3 class:list={[{ nowrap }]}>{title}</h3>}
+{TypographyType.QUATERNARY === type && <h4 class:list={[{ nowrap }]}>{title}</h4>}
 
 <style
   define:vars={{
@@ -44,5 +56,9 @@ const selectedStyle = collectionStyles[type] as CollectionStyle
     line-height: var(--lineHeight);
     font-size: var(--fontSize);
     color: var(--color);
+  }
+
+  .nowrap {
+    text-wrap: nowrap;
   }
 </style>

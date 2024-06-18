@@ -8,6 +8,12 @@ export enum TypographyType {
 export interface BasicProps {
   title: string
   type: TypographyType
+  format?: {
+    elipsis?: {
+      lines: number
+    }
+    noWrap?: boolean
+  }
 }
 
 export interface CollectionStyle {

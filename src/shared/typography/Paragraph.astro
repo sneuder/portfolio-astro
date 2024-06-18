@@ -1,18 +1,13 @@
 ---
-import { type BasicProps, TypographyType, type CollectionStyles, type CollectionStyle } from './schema'
+import {
+  type BasicProps,
+  TypographyType,
+  type CollectionStyles,
+  type CollectionStyle,
+} from './schema'
 import COLORS from '@/theme/colors'
 
-export interface Props extends BasicProps {
-  format?: {
-    elipsis?: {
-      lines: number
-    }
-  }
-}
-
-
-
-
+export interface Props extends BasicProps {}
 
 const { title, type, format } = Astro.props
 
@@ -36,10 +31,11 @@ const collectionStyles: CollectionStyles = {
 
 const selectedStyle = collectionStyles[type] as CollectionStyle
 
-const addElipsis = !!format?.elipsis?.lines
+const elipsis = !!format?.elipsis?.lines
+const nowrap = !!format?.noWrap
 ---
 
-<p class:list={['paragraph', { elipsis: addElipsis }]}>
+<p class:list={['paragraph', { elipsis, nowrap }]}>
   {title}
 </p>
 
@@ -62,5 +58,9 @@ const addElipsis = !!format?.elipsis?.lines
     -webkit-line-clamp: var(--elipsisLines);
     -webkit-box-orient: vertical;
     overflow: hidden;
+  }
+
+  .nowrap {
+    text-wrap: nowrap;
   }
 </style>
