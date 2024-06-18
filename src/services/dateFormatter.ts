@@ -6,6 +6,7 @@ export const formatDateRange = (startDate: Date, endDate: Date) => {
     month: 'short',
     timeZone: 'UTC',
   })
+
   const endMonth = end.toLocaleString('en-US', {
     month: 'short',
     timeZone: 'UTC',
@@ -19,10 +20,23 @@ export const formatDateRange = (startDate: Date, endDate: Date) => {
     year: 'numeric',
     timeZone: 'UTC',
   })
+
   const endYear = end.toLocaleString('en-US', {
     month: 'short',
     year: 'numeric',
     timeZone: 'UTC',
   })
+
+  return `${startYear} - ${endYear}`
+}
+
+export const formatDateRangeYear = (startDate: Date, endDate: Date) => {
+  const start = new Date(startDate)
+  const end = new Date(endDate)
+
+  const startYear = start.getUTCFullYear()
+  const endYear = end.getUTCFullYear()
+
+  if (startYear === endYear) return `${startYear}`
   return `${startYear} - ${endYear}`
 }
