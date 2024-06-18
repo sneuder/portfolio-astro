@@ -9,3 +9,13 @@ export interface BasicProps {
   title: string
   type: TypographyType
 }
+
+export interface CollectionStyle {
+  lineHeight: string
+  fontSize: string
+  color: string
+}
+
+export type CollectionStyles = {
+  [key in TypographyType]?: CollectionStyle
+}

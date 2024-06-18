@@ -1,5 +1,5 @@
 ---
-import { type BasicProps, TypographyType } from './schema'
+import { type BasicProps, TypographyType, type CollectionStyles, type CollectionStyle } from './schema'
 import COLORS from '@/theme/colors'
 
 export interface Props extends BasicProps {
@@ -10,15 +10,9 @@ export interface Props extends BasicProps {
   }
 }
 
-interface CollectionStyle {
-  lineHeight: string
-  fontSize: string
-  color: string
-}
 
-type CollectionStyles = {
-  [key in TypographyType]?: CollectionStyle
-}
+
+
 
 const { title, type, format } = Astro.props
 
@@ -26,7 +20,7 @@ const collectionStyles: CollectionStyles = {
   [TypographyType.PRIMARY]: {
     lineHeight: '1.7rem',
     fontSize: '1rem',
-    color: '#000000',
+    color: COLORS.GREY,
   },
   [TypographyType.SECONDARY]: {
     lineHeight: '1.5rem',
