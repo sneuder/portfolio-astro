@@ -12,12 +12,18 @@ export interface Props {
 }
 
 const { navItems, avatar } = Astro.props
+const currentPath = Astro.url.pathname
 ---
 
 <div class='container-navbar'>
   {
-    avatar && (
-      <Avatar src={avatar.src} alt={avatar.alt} redirect={avatar.redirect} size={avatar.size}/>
+    currentPath !== avatar?.redirect?.href && avatar && (
+      <Avatar
+        src={avatar.src}
+        alt={avatar.alt}
+        redirect={avatar.redirect}
+        size={avatar.size}
+      />
     )
   }
 
