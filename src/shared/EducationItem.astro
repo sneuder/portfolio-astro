@@ -1,0 +1,94 @@
+---
+import { type Education } from '@/models/education'
+import Header, { type Props as HeaderProps } from './typography/Header.astro'
+import Paragraph, {
+  type Props as ParagraphProps,
+} from './typography/Paragraph.astro'
+import { TypographyType } from './typography/schema'
+import { Image } from 'astro:assets'
+import { formatDateRangeYear } from '@/services/dateFormatter'
+
+interface Props extends Education {}
+
+const { institute, degree, logo, from, to } = Astro.props
+
+const instituteHeader: HeaderProps = {
+  title: institute,
+  type: TypographyType.TERTIARY,
+  format: {
+    noWrap: true
+  }
+}
+
+const degreeParagraph: ParagraphProps = {
+  title: degree,
+  type: TypographyType.SECONDARY,
+  format: {
+    noWrap: true
+  }
+}
+
+const dateParagraph: ParagraphProps = {
+  title: formatDateRangeYear(from, to),
+  type: TypographyType.TERTIARY,
+  format: {
+    noWrap: true
+  }
+}
+---
+
+<div class='container-education'>
+  <div class='container-logo'>
+    <Image
+      class='logo'
+      src={logo}
+      width='30'
+      height='30'
+      decoding='async'
+      loading='lazy'
+      alt='A description of my image.'
+    />
+  </div>
+
+  <div class='information'>
+    <div>
+      <Header title={instituteHeader.title} type={instituteHeader.type} format={instituteHeader.format}/>
+      <Paragraph title={dateParagraph.title} type={dateParagraph.type} format={dateParagraph.format}/>
+    </div>
+    <Paragraph title={degreeParagraph.title} type={degreeParagraph.type} format={degreeParagraph.format}/>
+  </div>
+</div>
+
+<style>
+  .container-education {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: start;
+    gap: 0.75rem;
+  }
+
+  .container-logo .logo {
+    object-fit: cover;
+    border-radius: 0.25rem;
+  }
+
+  .container-logo {
+    padding: 0.25rem;
+    box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .information div {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+</style>
