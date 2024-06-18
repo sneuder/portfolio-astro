@@ -26,9 +26,9 @@ const navBarProps: NavbarProps = {
     src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7GNQhrlzrEWBt4hyfc5Nz5VI_FA5n4k0Sbg&s',
     alt: 'My avatar',
     redirect: {
-      href: "/"
+      href: '/',
     },
-    size: "25px"
+    size: '25px',
   },
 }
 
@@ -60,7 +60,6 @@ const { title } = Astro.props
   </body>
 </html>
 
-
 <style is:global>
   * {
     padding: 0;
@@ -81,6 +80,10 @@ const { title } = Astro.props
     display: grid;
     grid-template-columns: 1fr;
     gap: 6rem;
+  }
+
+  img {
+    display: block;
   }
 
   @font-face {

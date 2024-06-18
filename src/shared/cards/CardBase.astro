@@ -1,0 +1,19 @@
+---
+import COLORS from '@/theme/colors'
+---
+
+<div>
+  <slot />
+</div>
+
+<style
+  define:vars={{
+    borderColor: COLORS.LIGHTER_GREY,
+  }}
+>
+  div {
+    border: var(--borderColor) 1px solid;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+</style>
