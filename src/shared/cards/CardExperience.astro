@@ -1,0 +1,81 @@
+---
+import Paragraph, {
+  type Props as ParagraphProps,
+} from '@/shared/typography/Paragraph.astro'
+import { TypographyType } from '@/shared/typography/schema'
+import { type Experience } from '@/models/experience'
+import { formatDateRange } from '@/services/dateFormatter'
+import Tag from '@/shared/Tag.astro'
+import Header, {
+  type Props as headerProps,
+} from '@/shared/typography/Header.astro'
+
+interface Props extends Experience {}
+
+const { companyName, generalDescription, mainStack, lastPosition } = Astro.props
+
+const positionInfo: headerProps = {
+  title: `${companyName} · ${lastPosition.name}`,
+  type: TypographyType.SECONDARY,
+}
+
+const descriptionParagraph: ParagraphProps = {
+  title: generalDescription,
+  type: TypographyType.SECONDARY,
+  format: {
+    elipsis: {
+      lines: 2,
+    },
+  },
+}
+
+const dateParagraph: ParagraphProps = {
+  title: formatDateRange(lastPosition.from, lastPosition.to),
+  type: TypographyType.TERTIARY,
+}
+---
+
+<div class='container'>
+  <div class='date'>
+    <div></div>
+    <Paragraph title={dateParagraph.title} type={dateParagraph.type} />
+  </div>
+
+  <Header title={positionInfo.title} type={positionInfo.type} />
+
+  <Paragraph
+    title={descriptionParagraph.title}
+    type={descriptionParagraph.type}
+    format={descriptionParagraph.format}
+  />
+
+  <div class='skills'>
+    {mainStack?.map((stack) => <Tag title={stack} />)}
+  </div>
+</div>
+
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .date {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+
+    div {
+      width: 2px;
+      height: 1rem;
+      border-radius: 0.5rem;
+      background-color: #71717a;
+    }
+  }
+
+  .skills {
+    display: flex;
+    gap: 0.5rem;
+  }
+</style>

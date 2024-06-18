@@ -1,69 +1,78 @@
 export enum STACK_LANGUAGES {
-  GO = "GO",
-  NODE = "Node",
-  JAVASCRIPT = "JavaScript",
-  TYPESCRIPT = "TypeScript",
-  JAVA = "Java",
-  HTML = "HTML",
-  CSS = "CSS"
+  GO = 'GO',
+  NODE = 'Node',
+  JAVASCRIPT = 'JavaScript',
+  TYPESCRIPT = 'TypeScript',
+  JAVA = 'Java',
+  HTML = 'HTML',
+  CSS = 'CSS',
 }
 
 export enum STACK_ORMS {
-  GORM = "GORM",
-  MONGOOSE = "Mongoose",
-  HIBERNATE = "Hibernate",
-  SEQUELIZE = "Sequelize",
-  TYPEORM = "TypeORM",
-  DRIZZEL = "Drizzel",
+  GORM = 'GORM',
+  MONGOOSE = 'Mongoose',
+  HIBERNATE = 'Hibernate',
+  SEQUELIZE = 'Sequelize',
+  TYPEORM = 'TypeORM',
+  DRIZZEL = 'Drizzel',
 }
 
 export enum STACK_DATABASES {
-  MYSQL = "MySQL",
-  MONGODB = "MongoDB",
-  POSTGRESQL = "PostgreSQL",
-  REDIS = "Redis"
+  MYSQL = 'MySQL',
+  MONGODB = 'MongoDB',
+  POSTGRESQL = 'PostgreSQL',
+  REDIS = 'Redis',
 }
 
 export enum STACK_FRAMEWORKS {
-  NEXTJS = "NextJS",
-  NESTJS = "NestJS",
-  ANGULAR = "Angular",
-  SPRING_BOOT = "Spring Boot",
-  EXPRESS = "Express",
-  BOOTSTRAP = "Bootstrap",
-  TAILWIND = "TAILWIND"
+  NEXTJS = 'NextJS',
+  NESTJS = 'NestJS',
+  ANGULAR = 'Angular',
+  SPRING_BOOT = 'Spring Boot',
+  EXPRESS = 'Express',
+  BOOTSTRAP = 'Bootstrap',
+  TAILWIND = 'TAILWIND',
 }
 
 export enum STACK_LIBRARIES {
-  REACT = "React",
-  REDUX = "Redux"
+  REACT = 'React',
+  REDUX = 'Redux',
 }
 
 export enum STACK_TOOLS {
-  DOCKER = "Docker",
-  GIT = "Git",
-  GITHUB = "GitHub",
-  BITBUCKET = "BitBucket",
-  FIGMA = "Figma",
+  DOCKER = 'Docker',
+  GIT = 'Git',
+  GITHUB = 'GitHub',
+  BITBUCKET = 'BitBucket',
+  FIGMA = 'Figma',
 }
 
 export enum STACK_PLATFORMS {
-  VERCEL = "Vercel",
-  JIRA = "Jira",
-  WEBFLOW = "Webflow",
-  WORDPRESS = "WordPress",
+  VERCEL = 'Vercel',
+  JIRA = 'Jira',
+  WEBFLOW = 'Webflow',
+  WORDPRESS = 'WordPress',
 }
+
+export type STACK =
+  | STACK_LANGUAGES
+  | STACK_ORMS
+  | STACK_DATABASES
+  | STACK_FRAMEWORKS
+  | STACK_LIBRARIES
+  | STACK_TOOLS
+  | STACK_PLATFORMS
 
 //
 
 export enum STACK_CATEGORY {
-  LANGUAGE = "Language",
-  ORM = "ORM",
-  DATABASE = "Database",
-  FRAMEWORK = "Frame Work",
-  LIBRARY = "Library",
-  TOOL = "Tool",
-  PLATFORM = "Platform",
+  LANGUAGE = 'Language',
+  ORM = 'ORM',
+  DATABASE = 'Database',
+  FRAMEWORK = 'Frame Work',
+  LIBRARY = 'Library',
+  TOOL = 'Tool',
+  PLATFORM = 'Platform',
 }
 
 export type StackCollectionByCategory = {

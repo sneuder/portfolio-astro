@@ -1,3 +1,39 @@
 ---
-
+import CardExperience from '@/shared/cards/CardExperience.astro'
+import experience from '@/data/experience'
 ---
+
+<div>
+  <section class="container-experience">
+    {
+      experience.map((experience) => (
+        <CardExperience
+          companyName={experience.companyName}
+          lastPosition={experience.lastPosition}
+          oldPositions={experience.oldPositions}
+          generalDescription={experience.generalDescription}
+          mainStack={experience.mainStack}
+          restStack={experience.restStack}
+        />
+      ))
+    }
+  </section>
+
+  <section>
+    lasdlkasdjalkdsjalkdjalkdsd alkdjalksdjasda alksdjslk
+  </section>
+</div>
+
+<style>
+  div {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+
+    .container-experience {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 4rem;
+    }
+  }
+</style>

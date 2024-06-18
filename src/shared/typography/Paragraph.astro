@@ -2,7 +2,13 @@
 import { type BasicProps, TypographyType } from './schema'
 import COLORS from '@/theme/colors'
 
-export interface Props extends BasicProps {}
+export interface Props extends BasicProps {
+  format?: {
+    elipsis?: {
+      lines: number
+    }
+  }
+}
 
 interface CollectionStyle {
   lineHeight: string
@@ -14,13 +20,18 @@ type CollectionStyles = {
   [key in TypographyType]?: CollectionStyle
 }
 
-const { title, type } = Astro.props
+const { title, type, format } = Astro.props
 
 const collectionStyles: CollectionStyles = {
   [TypographyType.PRIMARY]: {
     lineHeight: '1.7rem',
     fontSize: '1rem',
     color: '#000000',
+  },
+  [TypographyType.SECONDARY]: {
+    lineHeight: '1.5rem',
+    fontSize: '0.875rem',
+    color: COLORS.GREY,
   },
   [TypographyType.TERTIARY]: {
     lineHeight: '1.5rem',
@@ -30,9 +41,11 @@ const collectionStyles: CollectionStyles = {
 }
 
 const selectedStyle = collectionStyles[type] as CollectionStyle
+
+const addElipsis = !!format?.elipsis?.lines
 ---
 
-<p>
+<p class:list={['paragraph', { elipsis: addElipsis }]}>
   {title}
 </p>
 
@@ -41,11 +54,19 @@ const selectedStyle = collectionStyles[type] as CollectionStyle
     lineHeight: selectedStyle.lineHeight,
     fontSize: selectedStyle.fontSize,
     color: selectedStyle.color,
+    elipsisLines: format?.elipsis?.lines,
   }}
 >
-  p {
+  .paragraph {
     line-height: var(--lineHeight);
     font-size: var(--fontSize);
     color: var(--color);
+  }
+
+  .elipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: var(--elipsisLines);
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 </style>
