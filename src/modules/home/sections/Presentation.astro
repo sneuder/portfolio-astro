@@ -1,5 +1,8 @@
 ---
-import Avatar, { AvatarShape, type Props as AvatarProps } from '@/shared/Avatar.astro'
+import Avatar, {
+  AvatarShape,
+  type Props as AvatarProps,
+} from '@/shared/Avatar.astro'
 import Header, {
   type Props as HeaderProps,
 } from '@/shared/typography/Header.astro'
@@ -13,8 +16,8 @@ const avatarProps: AvatarProps = {
   alt: 'My avatar',
   size: 84,
   format: {
-    shape: AvatarShape.SQUARE
-  }
+    shape: AvatarShape.SQUARE,
+  },
 }
 
 const headerProps: HeaderProps = {
@@ -33,10 +36,24 @@ const paragraphProps: ParagraphProps = {
 }
 ---
 
-<Avatar src={avatarProps.src} alt={avatarProps.alt} size={avatarProps.size} format={avatarProps.format}/>
-<Header title={headerProps.title} type={headerProps.type} />
-<Paragraph
-  title={paragraphProps.title}
-  type={paragraphProps.type}
-  format={paragraphProps.format}
-/>
+<section>
+  <Avatar
+    src={avatarProps.src}
+    alt={avatarProps.alt}
+    size={avatarProps.size}
+    format={avatarProps.format}
+  />
+  <Header title={headerProps.title} type={headerProps.type} />
+  <Paragraph
+    title={paragraphProps.title}
+    type={paragraphProps.type}
+    format={paragraphProps.format}
+  />
+</section>
+
+<style>
+  section {
+    display: grid;
+    gap: 3rem
+  }
+</style>

@@ -1,5 +1,7 @@
 ---
-import ExperienceItem from '@/shared/items/ExperienceItem.astro'
+import ExperienceItem, {
+  EXPERIENCE_VARIANT,
+} from '@/shared/items/ExperienceItem.astro'
 import EducationItem from '@/shared/items/EducationItem.astro'
 import experience from '@/data/experience'
 import education from '@/data/education'
@@ -7,20 +9,13 @@ import CardBase from '@/shared/cards/CardBase.astro'
 ---
 
 <div class='container'>
-  <section class='container-experience'>
+  <main class='container-experience'>
     {
-      experience.map((experience) => (
-        <ExperienceItem
-          companyName={experience.companyName}
-          lastPosition={experience.lastPosition}
-          oldPositions={experience.oldPositions}
-          generalDescription={experience.generalDescription}
-          mainStack={experience.mainStack}
-          restStack={experience.restStack}
-        />
+      experience.map((exp) => (
+        <ExperienceItem {...exp} variant={EXPERIENCE_VARIANT.MINIMAL} />
       ))
     }
-  </section>
+  </main>
 
   <div class='container-education'>
     <section>

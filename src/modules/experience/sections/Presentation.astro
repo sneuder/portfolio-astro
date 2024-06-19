@@ -1,0 +1,39 @@
+---
+import Header, {
+  type Props as HeaderProps,
+} from '@/shared/typography/Header.astro'
+import Paragraph, {
+  type Props as ParagraphProps,
+} from '@/shared/typography/Paragraph.astro'
+import { TypographyType } from '@/shared/typography/schema'
+
+const headerProps: HeaderProps = {
+  title: 'About My Journey and Experience',
+  type: TypographyType.PRIMARY,
+}
+
+const paragraphProps: ParagraphProps = {
+  title:
+    "Welcome to the experience section of my website! Here, I will share my professional journey, accomplishments, and the expertise I've developed over the years. My name is Esneider Ospina, and I am a Node.js Expert, Go Developer Advocate, and Lifelong Innovator based in Colombia.",
+  type: TypographyType.PRIMARY,
+  format: {
+    justified: true,
+  },
+}
+---
+
+<section>
+  <Header title={headerProps.title} type={headerProps.type} />
+  <Paragraph
+    title={paragraphProps.title}
+    type={paragraphProps.type}
+    format={paragraphProps.format}
+  />
+</section>
+
+<style>
+  section {
+    display: grid;
+    gap: 3rem
+  }
+</style>

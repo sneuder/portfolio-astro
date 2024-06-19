@@ -3,11 +3,13 @@ import { type Education } from '@/models/education'
 import Header, { type Props as HeaderProps } from '../typography/Header.astro'
 import Paragraph, {
   type Props as ParagraphProps,
-} from '../typography/Paragraph.astro'
-import { TypographyType } from '../typography/schema'
-import { Image } from 'astro:assets'
+} from '@/shared/typography/Paragraph.astro'
+import { TypographyType } from '@/shared/typography/schema'
 import { formatDateRangeYear } from '@/services/dateFormatter'
-import Avatar, {AvatarShape, type Props as AvatarProps} from '@/shared/Avatar.astro'
+import Avatar, {
+  AvatarShape,
+  type Props as AvatarProps,
+} from '@/shared/Avatar.astro'
 
 interface Props extends Education {}
 
@@ -17,24 +19,24 @@ const instituteHeader: HeaderProps = {
   title: institute,
   type: TypographyType.TERTIARY,
   format: {
-    noWrap: true
-  }
+    noWrap: true,
+  },
 }
 
 const degreeParagraph: ParagraphProps = {
   title: degree,
   type: TypographyType.SECONDARY,
   format: {
-    noWrap: true
-  }
+    noWrap: true,
+  },
 }
 
 const dateParagraph: ParagraphProps = {
   title: formatDateRangeYear(from, to),
   type: TypographyType.TERTIARY,
   format: {
-    noWrap: true
-  }
+    noWrap: true,
+  },
 }
 
 const avatarInstitute: AvatarProps = {
@@ -42,23 +44,39 @@ const avatarInstitute: AvatarProps = {
   alt: institute,
   size: 30,
   format: {
-    shape: AvatarShape.SQUARE
-  }
+    shape: AvatarShape.SQUARE,
+  },
 }
-
 ---
 
 <div class='container-education'>
   <div class='container-logo'>
-    <Avatar src={avatarInstitute.src} alt={avatarInstitute.alt} size={avatarInstitute.size} format={avatarInstitute.format} />
+    <Avatar
+      src={avatarInstitute.src}
+      alt={avatarInstitute.alt}
+      size={avatarInstitute.size}
+      format={avatarInstitute.format}
+    />
   </div>
 
   <div class='information'>
     <div>
-      <Header title={instituteHeader.title} type={instituteHeader.type} format={instituteHeader.format}/>
-      <Paragraph title={dateParagraph.title} type={dateParagraph.type} format={dateParagraph.format}/>
+      <Header
+        title={instituteHeader.title}
+        type={instituteHeader.type}
+        format={instituteHeader.format}
+      />
+      <Paragraph
+        title={dateParagraph.title}
+        type={dateParagraph.type}
+        format={dateParagraph.format}
+      />
     </div>
-    <Paragraph title={degreeParagraph.title} type={degreeParagraph.type} format={degreeParagraph.format}/>
+    <Paragraph
+      title={degreeParagraph.title}
+      type={degreeParagraph.type}
+      format={degreeParagraph.format}
+    />
   </div>
 </div>
 
@@ -69,8 +87,6 @@ const avatarInstitute: AvatarProps = {
     align-items: start;
     gap: 0.75rem;
   }
-
-
 
   .container-logo {
     border-radius: 0.25rem;

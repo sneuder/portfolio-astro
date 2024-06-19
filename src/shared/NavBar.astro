@@ -1,6 +1,4 @@
 ---
-import Avatar, { type Props as AvatarProps } from './Avatar.astro'
-
 interface NavItem {
   name: string
   href: string
@@ -36,7 +34,6 @@ const { navItems } = Astro.props
   nav {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
     background-color: #ffffff;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 2rem;

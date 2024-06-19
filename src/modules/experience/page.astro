@@ -1,13 +1,15 @@
 ---
 import Layout from "@/shared/layouts/Layout.astro";
+import LayoutPage from "@/shared/layouts/LayoutPage.astro";
+import FullExperience from "./sections/FullExperience.astro"
+import Presentation from "./sections/Presentation.astro";
+import LineDivider from "@/shared/LineDivider.astro";
 ---
 
 <Layout title="Experience">
-  <div>
-
-  </div>
+  <LayoutPage>
+    <Presentation />
+    <LineDivider />
+    <FullExperience />
+  </LayoutPage>
 </Layout>
-
-<style>
- 
-</style>

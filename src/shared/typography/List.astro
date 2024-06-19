@@ -1,0 +1,32 @@
+---
+import COLORS from '@/theme/colors'
+
+export enum LIST_TYPE {
+  ORDER = 'ORDER',
+  UNORDER = 'UNORDER',
+}
+
+export interface Props {
+  list: string[]
+  type: LIST_TYPE
+}
+const { type, list } = Astro.props
+const ListTag = type === LIST_TYPE.ORDER ? 'ol' : 'ul'
+---
+
+<ListTag>
+  {list.map((item, index) => <li>{item}</li>)}
+</ListTag>
+
+<style define:vars={{ color: COLORS.GREY }}>
+  ol,
+  ul {
+    list-style-position: inside;
+
+    li {
+      font-size: 0.8rem;
+      line-height: 1.5rem;
+      color: var(--color);
+    }
+  }
+</style>

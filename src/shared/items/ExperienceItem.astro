@@ -9,10 +9,22 @@ import Tag from '@/shared/items/Tag.astro'
 import Header, {
   type Props as headerProps,
 } from '@/shared/typography/Header.astro'
+import List, {
+  LIST_TYPE,
+  type Props as ListProps,
+} from '@/shared/typography/List.astro'
 
-interface Props extends Experience {}
+export enum EXPERIENCE_VARIANT {
+  MINIMAL = 'MINIMAL',
+  FULL = 'FULL',
+}
 
-const { companyName, generalDescription, mainStack, lastPosition } = Astro.props
+export interface Props extends Experience {
+  variant: EXPERIENCE_VARIANT
+}
+
+const { companyName, generalDescription, mainStack, lastPosition, variant } =
+  Astro.props
 
 const positionInfo: headerProps = {
   title: `${companyName} · ${lastPosition.name}`,
@@ -23,15 +35,27 @@ const descriptionParagraph: ParagraphProps = {
   title: generalDescription,
   type: TypographyType.SECONDARY,
   format: {
+    justified: true,
+  },
+}
+
+if (variant === EXPERIENCE_VARIANT.MINIMAL) {
+  descriptionParagraph.format = {
+    ...descriptionParagraph.format,
     elipsis: {
       lines: 2,
     },
-  },
+  }
 }
 
 const dateParagraph: ParagraphProps = {
   title: formatDateRange(lastPosition.from, lastPosition.to),
   type: TypographyType.TERTIARY,
+}
+
+const dutiesList: ListProps = {
+  list: lastPosition.responsabilities.map((duty) => duty.description),
+  type: LIST_TYPE.UNORDER,
 }
 ---
 
@@ -48,6 +72,12 @@ const dateParagraph: ParagraphProps = {
     type={descriptionParagraph.type}
     format={descriptionParagraph.format}
   />
+
+  {
+    variant === EXPERIENCE_VARIANT.FULL && (
+      <List list={dutiesList.list} type={dutiesList.type} />
+    )
+  }
 
   <div class='skills'>
     {mainStack?.map((stack) => <Tag title={stack} />)}

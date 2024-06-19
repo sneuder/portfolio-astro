@@ -1,0 +1,22 @@
+---
+import experience from '@/data/experience'
+import ExperienceItem, {
+  EXPERIENCE_VARIANT,
+} from '@/shared/items/ExperienceItem.astro'
+---
+
+<main>
+  {
+    experience.map((exp) => (
+      <ExperienceItem {...exp} variant={EXPERIENCE_VARIANT.FULL} />
+    ))
+  }
+</main>
+
+<style>
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+</style>
