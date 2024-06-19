@@ -15,7 +15,7 @@ const ListTag = type === LIST_TYPE.ORDER ? 'ol' : 'ul'
 ---
 
 <ListTag>
-  {list.map((item, index) => <li>{item}</li>)}
+  {list.map((item) => <li>{item}</li>)}
 </ListTag>
 
 <style define:vars={{ color: COLORS.GREY }}>

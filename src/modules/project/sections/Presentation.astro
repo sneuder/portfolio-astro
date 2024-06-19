@@ -1,0 +1,21 @@
+---
+import { TypographyType } from '@/shared/typography/schema'
+import Heroe, { type Props as HeroeProps } from '@/shared/layouts/Heroe.astro'
+
+const heroeProps: HeroeProps = {
+  header: {
+    title: 'Highlighting Innovation: Projects that Define My Career',
+    type: TypographyType.PRIMARY,
+  },
+  paragraph: {
+    title:
+      'Delve into the projects that have been pivotal in shaping my professional trajectory. From groundbreaking applications in Node.js to impactful contributions as a Go Developer Advocate, each project showcases my commitment to pushing boundaries and delivering excellence in software development. Explore how these endeavors have not only demonstrated technical expertise but also fostered innovation within the dynamic tech industry landscape.',
+    type: TypographyType.PRIMARY,
+    format: {
+      justified: true,
+    },
+  },
+}
+---
+
+<Heroe header={heroeProps.header} paragraph={heroeProps.paragraph} />

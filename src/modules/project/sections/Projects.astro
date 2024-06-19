@@ -1,0 +1,20 @@
+---
+import projects from '@/data/projects'
+import ProjectItem from '@/shared/items/ProjectItem.astro'
+---
+
+<main>
+  {
+    projects.map((project, index) => (
+      <ProjectItem {...project} left={(index + 1) % 2 === 0} />
+    ))
+  }
+</main>
+
+<style>
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+</style>

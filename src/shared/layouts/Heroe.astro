@@ -1,0 +1,38 @@
+---
+import Header, {
+  type Props as HeaderProps,
+} from '@/shared/typography/Header.astro'
+import Paragraph, {
+  type Props as ParagraphProps,
+} from '@/shared/typography/Paragraph.astro'
+
+export interface Props {
+  header: HeaderProps
+  paragraph: ParagraphProps
+}
+
+export enum SLOTS {
+  BEFORE = 'BEFORE',
+  AFTER = 'AFTER',
+}
+
+const { header, paragraph } = Astro.props
+---
+
+<section>
+  <slot name='BEFORE' />
+  <Header title={header.title} type={paragraph.type} />
+  <Paragraph
+    title={paragraph.title}
+    type={paragraph.type}
+    format={paragraph.format}
+  />
+  <slot name='AFTER' />
+</section>
+
+<style>
+  section {
+    display: grid;
+    gap: 3rem;
+  }
+</style>

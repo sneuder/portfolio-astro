@@ -1,39 +1,21 @@
 ---
-import Header, {
-  type Props as HeaderProps,
-} from '@/shared/typography/Header.astro'
-import Paragraph, {
-  type Props as ParagraphProps,
-} from '@/shared/typography/Paragraph.astro'
 import { TypographyType } from '@/shared/typography/schema'
+import Heroe, { type Props as HeroeProps } from '@/shared/layouts/Heroe.astro'
 
-const headerProps: HeaderProps = {
-  title: 'About My Journey and Experience',
-  type: TypographyType.PRIMARY,
-}
-
-const paragraphProps: ParagraphProps = {
-  title:
-    "Welcome to my professional journey! I'm Esneider Ospina, a passionate Node.js Expert, Go Developer Advocate, and Lifelong Innovator based in Colombia. With years of hands-on experience and a deep love for technology, I have honed my skills in developing robust, scalable applications and advocating for the Go programming language. My dedication to innovation drives me to continuously explore new technologies and methodologies, ensuring I stay at the forefront of the ever-evolving tech landscape. Join me as I share the milestones, accomplishments, and expertise that have shaped my career.",
-  type: TypographyType.PRIMARY,
-  format: {
-    justified: true,
+const heroeProps: HeroeProps = {
+  header: {
+    title: 'About My Journey and Experience',
+    type: TypographyType.PRIMARY,
+  },
+  paragraph: {
+    title:
+      "Welcome to my professional journey! I'm Esneider Ospina, a passionate Node.js Expert, Go Developer Advocate, and Lifelong Innovator based in Colombia. With years of hands-on experience and a deep love for technology, I have honed my skills in developing robust, scalable applications and advocating for the Go programming language. My dedication to innovation drives me to continuously explore new technologies and methodologies, ensuring I stay at the forefront of the ever-evolving tech landscape. Join me as I share the milestones, accomplishments, and expertise that have shaped my career.",
+    type: TypographyType.PRIMARY,
+    format: {
+      justified: true,
+    },
   },
 }
 ---
 
-<section>
-  <Header title={headerProps.title} type={headerProps.type} />
-  <Paragraph
-    title={paragraphProps.title}
-    type={paragraphProps.type}
-    format={paragraphProps.format}
-  />
-</section>
-
-<style>
-  section {
-    display: grid;
-    gap: 3rem;
-  }
-</style>
+<Heroe header={heroeProps.header} paragraph={heroeProps.paragraph} />

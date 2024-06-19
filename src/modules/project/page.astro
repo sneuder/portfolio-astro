@@ -1,11 +1,17 @@
 ---
 import Layout from "@/shared/layouts/Layout.astro";
+import LayoutPage from "@/shared/layouts/LayoutPage.astro";
+import Presentation from "./sections/Presentation.astro";
+import Projects from "./sections/Projects.astro";
+import LineDivider from "@/shared/LineDivider.astro";
 ---
 
 <Layout title="Projects">
-  <div>
-
-  </div>
+  <LayoutPage>
+    <Presentation />
+    <LineDivider />
+    <Projects />
+  </LayoutPage>
 </Layout>
 
 <style>

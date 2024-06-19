@@ -14,22 +14,22 @@ const { title, type, format } = Astro.props
 const collectionStyles: CollectionStyles = {
   [TypographyType.PRIMARY]: {
     lineHeight: '3.5rem',
-    fontSize: '3rem',
+    fontSize: format?.fontSize || '3rem',
     color: COLORS.DARK_GREY,
   },
   [TypographyType.SECONDARY]: {
     lineHeight: '1.5rem',
-    fontSize: '1.25rem',
+    fontSize: format?.fontSize || '1.5rem',
     color: COLORS.GREY,
   },
   [TypographyType.TERTIARY]: {
     lineHeight: '1.5rem',
-    fontSize: '0.875rem',
+    fontSize: format?.fontSize || '0.875rem',
     color: COLORS.GREY,
   },
   [TypographyType.QUATERNARY]: {
     lineHeight: '1.5rem',
-    fontSize: '0.875rem',
+    fontSize: format?.fontSize || '0.875rem',
     color: COLORS.GREY,
   },
 }
@@ -38,15 +38,15 @@ const selectedStyle = collectionStyles[type] as CollectionStyle
 const nowrap = !!format?.noWrap
 ---
 
-{TypographyType.PRIMARY === type && <h1 class:list={[{ nowrap }]}>{title}</h1>}
+{type === TypographyType.PRIMARY && <h1 class:list={[{ nowrap }]}>{title}</h1>}
 {
-  TypographyType.SECONDARY === type && (
+  type === TypographyType.SECONDARY && (
     <h2 class:list={[{ nowrap }]}>{title}</h2>
   )
 }
-{TypographyType.TERTIARY === type && <h3 class:list={[{ nowrap }]}>{title}</h3>}
+{type === TypographyType.TERTIARY && <h3 class:list={[{ nowrap }]}>{title}</h3>}
 {
-  TypographyType.QUATERNARY === type && (
+  type === TypographyType.QUATERNARY && (
     <h4 class:list={[{ nowrap }]}>{title}</h4>
   )
 }
@@ -70,6 +70,10 @@ const nowrap = !!format?.noWrap
     h1 {
       font-size: 2rem;
       line-height: 3rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
     }
   }
 

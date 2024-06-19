@@ -1,5 +1,11 @@
 ---
 import COLORS from '@/theme/colors'
+
+interface Props {
+  padding?: string
+}
+
+const { padding = '1rem' } = Astro.props
 ---
 
 <div>
@@ -9,11 +15,12 @@ import COLORS from '@/theme/colors'
 <style
   define:vars={{
     borderColor: COLORS.LIGHTER_GREY,
+    padding,
   }}
 >
   div {
     border: var(--borderColor) 1px solid;
-    padding: 1rem;
+    padding: var(--padding);
     border-radius: 0.5rem;
   }
 </style>

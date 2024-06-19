@@ -1,0 +1,76 @@
+---
+import { Image } from 'astro:assets'
+import type { Project } from '@/models/project'
+import Paragraph, {
+  type Props as ParagraphProps,
+} from '@/shared/typography/Paragraph.astro'
+import Header, {
+  type Props as HeaderProps,
+} from '@/shared/typography/Header.astro'
+import { TypographyType } from '../typography/schema'
+import Tag from './Tag.astro'
+import CardBase from '@/shared/cards/CardBase.astro'
+
+interface Props extends Project {
+  left: boolean
+}
+
+const { name, description, stack, image, left } = Astro.props
+
+const headerProjectProps: HeaderProps = {
+  title: name,
+  type: TypographyType.SECONDARY,
+}
+
+const descriptionProjectProp: ParagraphProps = {
+  title: description,
+  type: TypographyType.PRIMARY,
+  format: {
+    justified: true,
+  },
+}
+---
+
+<CardBase padding='2rem'>
+  <div class:list={['container', { reverse: left }]}>
+    <Image class='img' src={image} alt={name} width={476} height={271} />
+    <div class='information'>
+      <Header {...headerProjectProps} />
+      <div class='stack'>
+        {stack.map((s) => <Tag title={s} />)}
+      </div>
+      <Paragraph {...descriptionProjectProp} />
+    </div>
+  </div>
+</CardBase>
+
+<style>
+  .img {
+    border-radius: 0.25rem;
+    object-fit: cover;
+  }
+
+  .container {
+    display: flex;
+    gap: 2rem;
+
+    @media screen and (max-width: 600px) {
+      flex-direction: column !important;
+    }
+  }
+
+  .reverse {
+    flex-direction: row-reverse;
+  }
+
+  .information {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .stack {
+    display: flex;
+    gap: 0.5rem;
+  }
+</style>
