@@ -8,26 +8,12 @@ interface NavItem {
 
 export interface Props {
   navItems: NavItem[]
-  avatar?: AvatarProps
 }
 
-const { navItems, avatar } = Astro.props
-const currentPath = Astro.url.pathname
+const { navItems } = Astro.props
 ---
 
 <div class='container-navbar'>
-  {
-    currentPath !== avatar?.redirect?.href && avatar && (
-      <Avatar
-        src={avatar.src}
-        alt={avatar.alt}
-        redirect={avatar.redirect}
-        size={avatar.size}
-        format={avatar.format}
-      />
-    )
-  }
-
   <nav>
     <div class='container-navbar-items'>
       {navItems.map((item) => <a href={item.href}>{item.name}</a>)}
@@ -55,6 +41,7 @@ const currentPath = Astro.url.pathname
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 2rem;
     padding: 0.5rem 1.5rem;
+    height: 30px;
   }
 
   .container-navbar-items {

@@ -1,0 +1,41 @@
+---
+import NavBar from '../NavBar.astro'
+import { type Props as NavbarProps } from '../NavBar.astro'
+
+const navBarProps: NavbarProps = {
+  navItems: [
+    {
+      name: 'Home',
+      href: '/',
+    },
+    {
+      name: 'About',
+      href: '/about',
+    },
+    {
+      name: 'Experience',
+      href: '/experience',
+    },
+    {
+      name: 'Projects',
+      href: '/projects',
+    },
+  ],
+}
+
+---
+
+<div class='body'>
+  <NavBar navItems={navBarProps.navItems} />
+  <slot />
+</div>
+
+<style>
+  .body {
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6rem;
+    width: 100%;
+  }
+</style>

@@ -2,19 +2,18 @@
 import { Image } from 'astro:assets'
 
 export enum AvatarShape {
-  CIRCLE = "CIRCLE",
-  SQUARE = "SQUARE"
+  CIRCLE = 'CIRCLE',
+  SQUARE = 'SQUARE',
 }
 export interface Props {
   src: string
-  alt: string,
-  size: number,
+  alt: string
+  size: number
   redirect?: {
     href: string
   }
   format?: {
-    shape: AvatarShape,
-
+    shape: AvatarShape
   }
 }
 
@@ -22,19 +21,21 @@ const { src, alt, redirect, size, format } = Astro.props
 
 const formats = {
   circle: format?.shape === AvatarShape.CIRCLE,
-  square: format?.shape === AvatarShape.SQUARE
+  square: format?.shape === AvatarShape.SQUARE,
 }
-
 ---
 
-
-
-
 <a href={redirect?.href}>
-      <Image src={src} alt={alt} class:list={["avatar",{ ...formats }]} width={size} height={size} />
-    </a>
+  <Image
+    src={src}
+    alt={alt}
+    class:list={['avatar', { ...formats }]}
+    width={size}
+    height={size}
+  />
+</a>
 
-<style define:vars={{ size: `${size}px`}}>
+<style define:vars={{ size: `${size}px` }}>
   img {
     width: var(--size);
     height: var(--size);
@@ -42,6 +43,7 @@ const formats = {
   }
 
   a {
+    width: var(--size);
     height: var(--size);
   }
 
