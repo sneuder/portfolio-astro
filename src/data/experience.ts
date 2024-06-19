@@ -10,6 +10,42 @@ import {
 
 const experience: Experience[] = [
   {
+    companyName: 'TorneosGG',
+    lastPosition: {
+      name: Position.FD,
+      from: new Date('2024-01-01'),
+      to: new Date('2024-05-30'),
+      responsabilities: [
+        {
+          description:
+            'Developed a chat system for a tournament-related project',
+        },
+        {
+          description:
+            'Reworked the blog section, implementing SSR Feed and components modification',
+        },
+        {
+          description: 'Contributed to the complete rework of the main project',
+        },
+        {
+          description:
+            'Collaborated with design and QA teams to implement changes and ensure quality',
+        },
+      ],
+    },
+    oldPositions: [],
+    generalDescription:
+      'I specialized in developing chat systems and reworking blog sections with SSR Feed for tournament-related projects. I participated in comprehensive reworks of main projects, provided ongoing support, optimized code for performance, and collaborated with design and QA teams to implement changes and ensure quality.',
+    mainStack: [
+      STACK_LANGUAGES.NODE,
+      STACK_LANGUAGES.TYPESCRIPT,
+      STACK_FRAMEWORKS.TAILWIND,
+      STACK_LIBRARIES.SOCKETIO,
+      STACK_LIBRARIES.TRPC,
+    ],
+    restStack: [],
+  },
+  {
     companyName: 'Imagine Apps',
     lastPosition: {
       name: Position.SD,
@@ -18,29 +54,29 @@ const experience: Experience[] = [
       responsabilities: [
         {
           description:
-            'Created web pages and applications using React, Angular, and various libraries',
+            'Developed web pages and applications using React, Angular, and various libraries.',
         },
         {
           description:
-            'Provided ongoing support, resolved issues, and optimized code for improved performance and maintainability',
+            'Provided ongoing support, resolved issues, and optimized code for performance.',
         },
         {
           description:
-            'Conducted detailed code reviews, ensuring quality, standards adherence, and issue identification',
+            'Conducted detailed code reviews for quality, standards adherence, and issue identification.',
         },
         {
           description:
-            'Managed NoSQL and SQL databases, handling data modeling, query optimization, and ensuring security',
+            'Managed NoSQL and SQL databases, including data modeling, query optimization, and security.',
         },
         {
           description:
-            'Designed and implemented APIs for seamless integration and efficient communication between components and external services',
+            'Designed and implemented APIs for seamless integration and communication.',
         },
       ],
     },
     oldPositions: [],
     generalDescription:
-      'I specialize in developing web pages and applications using React, Angular, and diverse libraries. I offer ongoing support, optimize code for performance, and conduct rigorous code reviews for quality assurance. I manage NoSQL and SQL databases, design APIs for seamless integration, and facilitate efficient communication between components and external services.',
+      'I specialized in developing web pages and applications using React, Angular, and diverse libraries. I offer ongoing support, optimize code for performance, and conduct rigorous code reviews for quality assurance. I manage NoSQL and SQL databases, design APIs for seamless integration, and facilitate efficient communication between components and external services.',
     mainStack: [
       STACK_LANGUAGES.GO,
       STACK_LANGUAGES.NODE,
@@ -60,19 +96,19 @@ const experience: Experience[] = [
       responsabilities: [
         {
           description:
-            'Responsible for creating the main website page and providing ongoing project support, ensuring seamless functionality and user experience',
+            'Created main website page and provided ongoing project support.',
         },
         {
           description:
-            'Implemented automated systems for updating event dates on the website, ensuring accuracy and timeliness without manual intervention',
+            'Implemented automated systems for updating event dates on the website.',
         },
         {
           description:
-            'Developed efficient automated processes for delivering guides, ensuring swift and hassle-free distribution to users',
+            'Developed efficient automated processes for delivering guides to users.',
         },
         {
           description:
-            'Executed comprehensive unit tests for each website component, guaranteeing the reliability and performance of individual parts of the web application',
+            'Executed comprehensive unit tests for each website component.',
         },
       ],
     },
@@ -97,25 +133,25 @@ const experience: Experience[] = [
       responsabilities: [
         {
           description:
-            'Created robust APIs and web applications, focusing on functionality and user experience',
+            'Developed robust APIs and web apps, focusing on functionality and UX.',
         },
         {
           description:
-            'Conducted meticulous manual and unit testing for each feature, ensuring quality and reliability',
+            'Performed meticulous testing for each feature to ensure reliability.',
         },
         {
           description:
-            'Defined project structure and selected appropriate tech stack, optimizing development workflow',
+            'Defined project structure, selected tech stack, and optimized workflow.',
         },
         {
           description:
-            'Prepared comprehensive documentation, providing clear guidelines for project understanding and future development',
+            'Prepared comprehensive documentation for project clarity and future development.',
         },
       ],
     },
     oldPositions: [],
     generalDescription:
-      'I specialize in building robust APIs and user-centric web apps, prioritizing seamless experiences and functionality. Rigorous testing ensures top quality and reliability. I excel in structuring projects, optimizing tech stacks, and creating comprehensive documentation for efficient development and future enhancements',
+      'I specialized in building robust APIs and user-centric web apps, prioritizing seamless experiences and functionality. Rigorous testing ensures top quality and reliability. I excel in structuring projects, optimizing tech stacks, and creating comprehensive documentation for efficient development and future enhancements',
     mainStack: [
       STACK_LANGUAGES.JAVA,
       STACK_LANGUAGES.GO,

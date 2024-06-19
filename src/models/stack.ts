@@ -31,12 +31,14 @@ export enum STACK_FRAMEWORKS {
   SPRING_BOOT = 'Spring Boot',
   EXPRESS = 'Express',
   BOOTSTRAP = 'Bootstrap',
-  TAILWIND = 'TAILWIND',
+  TAILWIND = 'Tailwind',
 }
 
 export enum STACK_LIBRARIES {
   REACT = 'React',
   REDUX = 'Redux',
+  SOCKETIO = 'Socket.IO',
+  TRPC = 'tRPC',
 }
 
 export enum STACK_TOOLS {
