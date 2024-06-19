@@ -2,6 +2,7 @@
 import { ViewTransitions } from 'astro:transitions'
 import NavBar from '../NavBar.astro'
 import { type Props as NavbarProps } from '../NavBar.astro'
+import { AvatarShape } from '../Avatar.astro'
 
 interface Props {
   title: string
@@ -28,7 +29,10 @@ const navBarProps: NavbarProps = {
     redirect: {
       href: '/',
     },
-    size: '25px',
+    size: 25,
+    format: {
+      shape: AvatarShape.CIRCLE
+    }
   },
 }
 

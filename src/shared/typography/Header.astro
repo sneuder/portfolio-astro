@@ -39,9 +39,17 @@ const nowrap = !!format?.noWrap
 ---
 
 {TypographyType.PRIMARY === type && <h1 class:list={[{ nowrap }]}>{title}</h1>}
-{TypographyType.SECONDARY === type && <h2 class:list={[{ nowrap }]}>{title}</h2>}
+{
+  TypographyType.SECONDARY === type && (
+    <h2 class:list={[{ nowrap }]}>{title}</h2>
+  )
+}
 {TypographyType.TERTIARY === type && <h3 class:list={[{ nowrap }]}>{title}</h3>}
-{TypographyType.QUATERNARY === type && <h4 class:list={[{ nowrap }]}>{title}</h4>}
+{
+  TypographyType.QUATERNARY === type && (
+    <h4 class:list={[{ nowrap }]}>{title}</h4>
+  )
+}
 
 <style
   define:vars={{
@@ -56,6 +64,13 @@ const nowrap = !!format?.noWrap
     line-height: var(--lineHeight);
     font-size: var(--fontSize);
     color: var(--color);
+  }
+
+  @media screen and (max-width: 600px) {
+    h1 {
+      font-size: 2rem;
+      line-height: 3rem;
+    }
   }
 
   .nowrap {

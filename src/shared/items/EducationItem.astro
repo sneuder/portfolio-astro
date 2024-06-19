@@ -7,6 +7,7 @@ import Paragraph, {
 import { TypographyType } from '../typography/schema'
 import { Image } from 'astro:assets'
 import { formatDateRangeYear } from '@/services/dateFormatter'
+import Avatar, {AvatarShape, type Props as AvatarProps} from '@/shared/Avatar.astro'
 
 interface Props extends Education {}
 
@@ -35,19 +36,21 @@ const dateParagraph: ParagraphProps = {
     noWrap: true
   }
 }
+
+const avatarInstitute: AvatarProps = {
+  src: logo,
+  alt: institute,
+  size: 30,
+  format: {
+    shape: AvatarShape.SQUARE
+  }
+}
+
 ---
 
 <div class='container-education'>
   <div class='container-logo'>
-    <Image
-      class='logo'
-      src={logo}
-      width='30'
-      height='30'
-      decoding='async'
-      loading='lazy'
-      alt='A description of my image.'
-    />
+    <Avatar src={avatarInstitute.src} alt={avatarInstitute.alt} size={avatarInstitute.size} format={avatarInstitute.format} />
   </div>
 
   <div class='information'>
@@ -67,15 +70,12 @@ const dateParagraph: ParagraphProps = {
     gap: 0.75rem;
   }
 
-  .container-logo .logo {
-    object-fit: cover;
-    border-radius: 0.25rem;
-  }
+
 
   .container-logo {
+    border-radius: 0.25rem;
     padding: 0.25rem;
     box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
-    object-fit: cover;
     border-radius: 0.25rem;
     flex-shrink: 0;
     width: 40px;

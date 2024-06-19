@@ -23,19 +23,22 @@ const collectionStyles: CollectionStyles = {
     color: COLORS.GREY,
   },
   [TypographyType.TERTIARY]: {
-    lineHeight: '1.5rem',
-    fontSize: '0.875rem',
+    lineHeight: '1.2rem',
+    fontSize: '0.8rem',
     color: COLORS.LIGHT_GREY,
   },
 }
 
 const selectedStyle = collectionStyles[type] as CollectionStyle
 
-const elipsis = !!format?.elipsis?.lines
-const nowrap = !!format?.noWrap
+const formats = {
+  elipsis: !!format?.elipsis?.lines,
+  nowrap: !!format?.noWrap,
+  justified: !!format?.justified,
+}
 ---
 
-<p class:list={['paragraph', { elipsis, nowrap }]}>
+<p class:list={[{ ...formats }]}>
   {title}
 </p>
 
@@ -47,7 +50,7 @@ const nowrap = !!format?.noWrap
     elipsisLines: format?.elipsis?.lines,
   }}
 >
-  .paragraph {
+  p {
     line-height: var(--lineHeight);
     font-size: var(--fontSize);
     color: var(--color);
@@ -62,5 +65,9 @@ const nowrap = !!format?.noWrap
 
   .nowrap {
     text-wrap: nowrap;
+  }
+
+  .justified {
+    text-align: justify;
   }
 </style>

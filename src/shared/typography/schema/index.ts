@@ -13,6 +13,7 @@ export interface BasicProps {
       lines: number
     }
     noWrap?: boolean
+    justified?: boolean
   }
 }
 

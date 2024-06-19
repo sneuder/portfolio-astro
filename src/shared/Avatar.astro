@@ -1,30 +1,41 @@
 ---
+import { Image } from 'astro:assets'
+
+export enum AvatarShape {
+  CIRCLE = "CIRCLE",
+  SQUARE = "SQUARE"
+}
 export interface Props {
   src: string
   alt: string,
-  size: string,
+  size: number,
   redirect?: {
     href: string
   }
+  format?: {
+    shape: AvatarShape,
+
+  }
 }
 
-const { src, alt, redirect, size } = Astro.props
-const setDefault = !redirect
+const { src, alt, redirect, size, format } = Astro.props
+
+const formats = {
+  circle: format?.shape === AvatarShape.CIRCLE,
+  square: format?.shape === AvatarShape.SQUARE
+}
+
 ---
 
-{
-  redirect && (
-    <a href={redirect.href}>
-      <img src={src} alt={alt} />
+
+
+
+<a href={redirect?.href}>
+      <Image src={src} alt={alt} class:list={["avatar",{ ...formats }]} width={size} height={size} />
     </a>
-  )
-}
 
-{setDefault && <img src={src} alt={alt} />}
-
-<style define:vars={{ size }}>
+<style define:vars={{ size: `${size}px`}}>
   img {
-    border-radius: 50%;
     width: var(--size);
     height: var(--size);
     object-fit: cover;
@@ -32,5 +43,13 @@ const setDefault = !redirect
 
   a {
     height: var(--size);
+  }
+
+  .circle {
+    border-radius: 50%;
+  }
+
+  .square {
+    border-radius: 0.25rem;
   }
 </style>

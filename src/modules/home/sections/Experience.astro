@@ -1,5 +1,5 @@
 ---
-import CardExperience from '@/shared/items/ExperienceItem.astro'
+import ExperienceItem from '@/shared/items/ExperienceItem.astro'
 import EducationItem from '@/shared/items/EducationItem.astro'
 import experience from '@/data/experience'
 import education from '@/data/education'
@@ -10,7 +10,7 @@ import CardBase from '@/shared/cards/CardBase.astro'
   <section class='container-experience'>
     {
       experience.map((experience) => (
-        <CardExperience
+        <ExperienceItem
           companyName={experience.companyName}
           lastPosition={experience.lastPosition}
           oldPositions={experience.oldPositions}
@@ -24,21 +24,17 @@ import CardBase from '@/shared/cards/CardBase.astro'
 
   <div class='container-education'>
     <section>
-      <CardBase>Coming Soon</CardBase>
-    </section>
-
-    <section>
       <CardBase>
         <div class='container-education-items'>
           {
             education.map((educationItem) => (
-                <EducationItem
-                  institute={educationItem.institute}
-                  degree={educationItem.degree}
-                  logo={educationItem.logo}
-                  from={educationItem.from}
-                  to={educationItem.to}
-                />
+              <EducationItem
+                institute={educationItem.institute}
+                degree={educationItem.degree}
+                logo={educationItem.logo}
+                from={educationItem.from}
+                to={educationItem.to}
+              />
             ))
           }
         </div>
@@ -52,6 +48,10 @@ import CardBase from '@/shared/cards/CardBase.astro'
     display: grid;
     grid-template-columns: 2fr 1fr;
     gap: 3rem;
+
+    @media screen and (max-width: 600px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   .container-experience,
