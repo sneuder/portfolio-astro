@@ -17,25 +17,23 @@ import CardBase from '@/shared/cards/CardBase.astro'
     }
   </main>
 
-  <div class='container-education'>
-    <section>
-      <CardBase>
-        <div class='container-education-items'>
-          {
-            education.map((educationItem) => (
-              <EducationItem
-                institute={educationItem.institute}
-                degree={educationItem.degree}
-                logo={educationItem.logo}
-                from={educationItem.from}
-                to={educationItem.to}
-              />
-            ))
-          }
-        </div>
-      </CardBase>
-    </section>
-  </div>
+  <section class='container-education'>
+    <CardBase>
+      <div class='container-education-items'>
+        {
+          education.map((educationItem) => (
+            <EducationItem
+              institute={educationItem.institute}
+              degree={educationItem.degree}
+              logo={educationItem.logo}
+              from={educationItem.from}
+              to={educationItem.to}
+            />
+          ))
+        }
+      </div>
+    </CardBase>
+  </section>
 </div>
 
 <style>
