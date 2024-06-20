@@ -1,4 +1,4 @@
-import type { StackCollectionByCategory, STACK } from './stack'
+import type { STACK } from './stack'
 
 export enum Position {
   SD = 'Software Developer',
