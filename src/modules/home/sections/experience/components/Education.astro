@@ -1,0 +1,66 @@
+---
+import education from '@/data/education'
+import CardBase from '@/shared/cards/CardBase.astro'
+import EducationItem from '@/shared/items/EducationItem.astro'
+import Header, {
+  type Props as HeaderProps,
+} from '@/shared/typography/Header.astro'
+import { TypographyType } from '@/shared/typography/schema'
+import Icon, { type Props as IconProps } from '@/shared/Icon.astro'
+import COLORS from '@/theme/colors'
+
+const educationHeader: HeaderProps = {
+  title: 'Education',
+  type: TypographyType.SECONDARY,
+  format: {
+    noWrap: true,
+    fontSize: '1rem',
+  },
+}
+
+const projectHeaderIcon: IconProps = {
+  name: 'experience',
+  color: COLORS.DARK_GREY
+}
+---
+
+<CardBase>
+  <div class='container'>
+    <div class='container-header'>
+      <Icon {...projectHeaderIcon} />
+      <Header {...educationHeader} />
+    </div>
+    <div class='container-education'>
+      {
+        education.map((educationItem) => (
+          <EducationItem
+            institute={educationItem.institute}
+            degree={educationItem.degree}
+            logo={educationItem.logo}
+            from={educationItem.from}
+            to={educationItem.to}
+          />
+        ))
+      }
+    </div>
+  </div>
+</CardBase>
+
+<style>
+  div,
+  .container {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .container-header {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .container-education {
+    display: grid;
+    gap: 1.5rem;
+  }
+</style>

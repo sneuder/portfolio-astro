@@ -1,0 +1,52 @@
+---
+import ExperienceItem, {
+  EXPERIENCE_VARIANT,
+} from '@/shared/items/ExperienceItem.astro'
+import experience from '@/data/experience'
+import Education from './components/Education.astro'
+import Projects from './components/Projects.astro'
+import LineDivider from '@/shared/LineDivider.astro'
+---
+
+<div class='container'>
+  <main class='container-experience'>
+    {
+      experience.map((exp) => (
+        <ExperienceItem {...exp} variant={EXPERIENCE_VARIANT.MINIMAL} />
+      ))
+    }
+  </main>
+
+  <article>
+    <section>
+      <Projects />
+    </section>
+    <LineDivider />
+    <section>
+      <Education />
+    </section>
+  </article>
+</div>
+
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+
+    @media screen and (max-width: 830px) {
+      grid-template-columns: 1fr;
+    }
+
+    .container-experience {
+      display: grid;
+      gap: 3rem;
+    }
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+</style>

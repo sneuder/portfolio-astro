@@ -14,6 +14,7 @@ export interface BasicProps {
     }
     noWrap?: boolean
     justified?: boolean
+    centered?: boolean,
     fontSize?: string
   }
 }

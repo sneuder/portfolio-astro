@@ -35,19 +35,31 @@ const collectionStyles: CollectionStyles = {
 }
 
 const selectedStyle = collectionStyles[type] as CollectionStyle
-const nowrap = !!format?.noWrap
+
+const formats = {
+  nowrap: !!format?.noWrap,
+  center: !!format?.centered,
+}
 ---
 
-{type === TypographyType.PRIMARY && <h1 class:list={[{ nowrap }]}>{title}</h1>}
 {
-  type === TypographyType.SECONDARY && (
-    <h2 class:list={[{ nowrap }]}>{title}</h2>
+  type === TypographyType.PRIMARY && (
+    <h1 class:list={[{ ...formats }]}>{title}</h1>
   )
 }
-{type === TypographyType.TERTIARY && <h3 class:list={[{ nowrap }]}>{title}</h3>}
+{
+  type === TypographyType.SECONDARY && (
+    <h2 class:list={[{ ...formats }]}>{title}</h2>
+  )
+}
+{
+  type === TypographyType.TERTIARY && (
+    <h3 class:list={[{ ...formats }]}>{title}</h3>
+  )
+}
 {
   type === TypographyType.QUATERNARY && (
-    <h4 class:list={[{ nowrap }]}>{title}</h4>
+    <h4 class:list={[{ ...formats }]}>{title}</h4>
   )
 }
 
@@ -79,5 +91,9 @@ const nowrap = !!format?.noWrap
 
   .nowrap {
     text-wrap: nowrap;
+  }
+
+  .center {
+    text-align: center;
   }
 </style>

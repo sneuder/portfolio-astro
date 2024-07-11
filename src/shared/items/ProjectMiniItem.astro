@@ -1,0 +1,74 @@
+---
+import Header, { type Props as HeaderProps } from '../typography/Header.astro'
+import Paragraph, {
+  type Props as ParagraphProps,
+} from '../typography/Paragraph.astro'
+import { TypographyType } from '../typography/schema'
+import { type Project } from '@/models/project'
+import Tag, { type Props as TagProps, TAG_TYPE } from './Tag.astro'
+import COLORS from '@/theme/colors'
+import CardBase from '../cards/CardBase.astro'
+
+interface Props extends Pick<Project, 'name' | 'type' | 'description'> {}
+
+const { name, description, type } = Astro.props
+
+const projectHeader: HeaderProps = {
+  title: name,
+  type: TypographyType.TERTIARY,
+  format: {
+    noWrap: true,
+  },
+}
+
+const projectDescription: ParagraphProps = {
+  title: description,
+  type: TypographyType.SECONDARY,
+  format: {
+    elipsis: {
+      lines: 1,
+    },
+  },
+}
+
+const projectType: TagProps = {
+  title: type,
+  type: TAG_TYPE.TERTIARY,
+}
+---
+
+<CardBase backgroundColor={COLORS.LIGHTER_GREY}>
+  <div class='container-education'>
+    <div class='information'>
+      <div class='header'>
+        <Header
+          title={projectHeader.title}
+          type={projectHeader.type}
+          format={projectHeader.format}
+        />
+      </div>
+
+      <Tag {...projectType} />
+    </div>
+  </div>
+</CardBase>
+<style>
+  .container-education {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 0.5rem;
+  }
+
+  .information {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: flex-start;
+
+    .header {
+      display: flex;
+      gap: 0.5rem;
+    }
+  }
+</style>

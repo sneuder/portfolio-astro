@@ -1,0 +1,20 @@
+---
+import Header, {
+  type Props as HeaderProps,
+} from '@/shared/typography/Header.astro'
+import { TypographyType } from '@/shared/typography/schema'
+
+const headerProjectsProps: HeaderProps = {
+  title: 'Other projects',
+  type: TypographyType.SECONDARY,
+  format: {
+    centered: true,
+  },
+}
+---
+
+<section>
+  <Header {...headerProjectsProps} />
+</section>
+
+<style></style>

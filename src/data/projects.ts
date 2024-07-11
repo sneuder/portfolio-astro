@@ -1,4 +1,4 @@
-import { type Project } from '@/models/project'
+import { ProjectType, type Project } from '@/models/project'
 import {
   STACK_FRAMEWORKS,
   STACK_LANGUAGES,
@@ -14,6 +14,7 @@ const projects: Project[] = [
     stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER],
     image:
       'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    type: ProjectType.SASS
   },
   {
     name: 'Uploader Service',
@@ -22,6 +23,8 @@ const projects: Project[] = [
     stack: [STACK_LANGUAGES.GO, STACK_ORMS.GORM],
     image:
       'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    type: ProjectType.SASS
+
   },
   {
     name: 'Encrypt Service',
@@ -34,6 +37,8 @@ const projects: Project[] = [
     ],
     image:
       'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    type: ProjectType.SASS
+
   },
   {
     name: 'Hotel Management',
@@ -46,14 +51,7 @@ const projects: Project[] = [
     ],
     image:
       'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
-  },
-  {
-    name: 'Uploader Service',
-    description:
-      'Created a backend service enabling secure file uploads while seamlessly storing associated data in the database. Implemented robust file handling and database integration for a streamlined user experience.',
-    stack: [STACK_LANGUAGES.GO, STACK_ORMS.GORM],
-    image:
-      'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    type: ProjectType.SASS
   },
 ]
 

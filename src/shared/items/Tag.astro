@@ -1,20 +1,55 @@
 ---
-interface Props {
+import { enumToObject } from '@/services/structureTransform'
+import COLORS from '@/theme/colors'
+export interface Props {
   title: string
+  type?: TAG_TYPE
 }
 
-const { title } = Astro.props
+export enum TAG_TYPE {
+  PRIMARY = 'PRIMARY',
+  SECONDARY = 'SECONDARY',
+  TERTIARY = "TERTIARY"
+}
+
+const { title, type = TAG_TYPE.PRIMARY } = Astro.props
+const colors = enumToObject(COLORS)
 ---
 
-<div>{title}</div>
+<div
+  class:list={[
+    {
+      primary: type === TAG_TYPE.PRIMARY,
+      secondary: type === TAG_TYPE.SECONDARY,
+      tertiary: type === TAG_TYPE.TERTIARY,
+    },
+  ]}>
+  {title}
+</div>
 
-<style>
+<style define:vars={{ ...colors }}>
   div {
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
-    background-color: #27272a;
-    color: white;
+    border: 1px solid transparent;
     font-size: 0.6rem;
     font-weight: bold;
+  }
+
+  .primary {
+    background-color: var(--dark_grey);
+    color: var(--white);
+  }
+
+  .secondary {
+    background-color: var(--white);
+    color: var(--dark_grey);
+    border-color: var(--dark_grey);
+  }
+
+  .tertiary {
+    background-color: var(--white);
+    color: var(--light_grey);
+    border-color: var(--light_grey);
   }
 </style>

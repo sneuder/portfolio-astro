@@ -1,0 +1,67 @@
+---
+import projects from '@/data/projects'
+import CardBase from '@/shared/cards/CardBase.astro'
+import ProjectMiniItem from '@/shared/items/ProjectMiniItem.astro'
+import Header, {
+  type Props as HeaderProps,
+} from '@/shared/typography/Header.astro'
+import { TypographyType } from '@/shared/typography/schema'
+import Icon, { type Props as IconProps } from '@/shared/Icon.astro'
+import COLORS from '@/theme/colors'
+
+const projectHeader: HeaderProps = {
+  title: 'Projects',
+  type: TypographyType.SECONDARY,
+  format: {
+    noWrap: true,
+    fontSize: '1rem',
+  },
+}
+
+const projectHeaderIcon: IconProps = {
+  name: 'project',
+  color: COLORS.DARK_GREY,
+}
+---
+
+<div class='container'>
+  <div class='container-header'>
+    <Icon {...projectHeaderIcon} />
+    <Header {...projectHeader} />
+  </div>
+  <div class='container-projects'>
+    {
+      projects.map((project) => (
+        <ProjectMiniItem
+          name={project.name}
+          description={project.description}
+          type={project.type}
+        />
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .container,
+  .container-projects {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .container-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .container-projects {
+    @media screen and (max-width: 830px) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @media screen and (max-width: 650px) {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
