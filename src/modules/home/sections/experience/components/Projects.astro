@@ -1,6 +1,5 @@
 ---
 import projects from '@/data/projects'
-import CardBase from '@/shared/cards/CardBase.astro'
 import ProjectMiniItem from '@/shared/items/ProjectMiniItem.astro'
 import Header, {
   type Props as HeaderProps,
@@ -8,6 +7,7 @@ import Header, {
 import { TypographyType } from '@/shared/typography/schema'
 import Icon, { type Props as IconProps } from '@/shared/Icon.astro'
 import COLORS from '@/theme/colors'
+import Link from '@/shared/Link.astro'
 
 const projectHeader: HeaderProps = {
   title: 'Projects',
@@ -27,15 +27,17 @@ const projectHeaderIcon: IconProps = {
 <div class='container'>
   <div class='container-header'>
     <Icon {...projectHeaderIcon} />
-    <Header {...projectHeader} />
+    <Link href='/projects'>
+      <Header {...projectHeader} />
+    </Link>
   </div>
   <div class='container-projects'>
     {
       projects.map((project) => (
         <ProjectMiniItem
           name={project.name}
-          description={project.description}
           type={project.type}
+          links={project.links}
         />
       ))
     }

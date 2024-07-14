@@ -6,10 +6,21 @@ export enum ProjectType {
   TOOL = 'Tool',
 }
 
+export enum ProjectLinkType {
+  GIT_HUB = 'GIT_HUB',
+  WEB = 'WEB',
+}
+
+export interface ProjectLink {
+  type: ProjectLinkType
+  href: string
+}
+
 export interface Project {
   name: string
   description: string
   stack: STACK[]
   image: string
   type: ProjectType
+  links: ProjectLink[]
 }

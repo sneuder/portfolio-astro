@@ -1,33 +1,30 @@
 ---
-import Header, { type Props as HeaderProps } from '../typography/Header.astro'
+import Header, {
+  type Props as HeaderProps,
+} from '@/shared/typography/Header.astro'
+
 import Paragraph, {
   type Props as ParagraphProps,
-} from '../typography/Paragraph.astro'
-import { TypographyType } from '../typography/schema'
+} from '@/shared/typography/Paragraph.astro'
+
+import { TypographyType } from '@/shared/typography/schema'
 import { type Project } from '@/models/project'
 import Tag, { type Props as TagProps, TAG_TYPE } from './Tag.astro'
 import COLORS from '@/theme/colors'
-import CardBase from '../cards/CardBase.astro'
+import CardBase from '@/shared/cards/CardBase.astro'
+import { ProjectLinkMapper, ProjectLinkIconMapper } from '@/data/projects'
+import Link from '@/shared/Link.astro'
+import Icon, { type Props as IconProps } from '@/shared/Icon.astro'
 
-interface Props extends Pick<Project, 'name' | 'type' | 'description'> {}
+interface Props extends Pick<Project, 'name' | 'type' | 'links'> {}
 
-const { name, description, type } = Astro.props
+const { name, type, links } = Astro.props
 
 const projectHeader: HeaderProps = {
   title: name,
   type: TypographyType.TERTIARY,
   format: {
     noWrap: true,
-  },
-}
-
-const projectDescription: ParagraphProps = {
-  title: description,
-  type: TypographyType.SECONDARY,
-  format: {
-    elipsis: {
-      lines: 1,
-    },
   },
 }
 
@@ -38,37 +35,59 @@ const projectType: TagProps = {
 ---
 
 <CardBase backgroundColor={COLORS.LIGHTER_GREY}>
-  <div class='container-education'>
-    <div class='information'>
-      <div class='header'>
-        <Header
-          title={projectHeader.title}
-          type={projectHeader.type}
-          format={projectHeader.format}
-        />
-      </div>
-
+  <div class='container-project'>
+    <div class='container-information'>
+      <Header
+        title={projectHeader.title}
+        type={projectHeader.type}
+        format={projectHeader.format}
+      />
       <Tag {...projectType} />
     </div>
+
+    {
+      links.length !== 0 && (
+        <div class='container-links'>
+          {links.map((link) => {
+            const linkParagraphProps: ParagraphProps = {
+              title: ProjectLinkMapper[link.type],
+              type: TypographyType.TERTIARY,
+            }
+
+            const iconLinkProps:IconProps = {
+              name: ProjectLinkIconMapper[link.type],
+            }
+
+            return (
+              <Link href={link.href} newTab={true}>
+                <Icon {...iconLinkProps} />
+                <Paragraph {...linkParagraphProps} />
+              </Link>
+            )
+          })}
+        </div>
+      )
+    }
   </div>
 </CardBase>
+
 <style>
-  .container-education {
+  .container-project {
     display: grid;
     grid-template-columns: 1fr;
     align-items: start;
     gap: 0.5rem;
   }
 
-  .information {
+  .container-information {
     display: flex;
     justify-content: space-between;
     gap: 2rem;
     align-items: flex-start;
+  }
 
-    .header {
-      display: flex;
-      gap: 0.5rem;
-    }
+  .container-links {
+    display: flex;
+    gap: 1.25rem;
   }
 </style>

@@ -1,10 +1,24 @@
-import { ProjectType, type Project } from '@/models/project'
+import { ProjectType, type Project, ProjectLinkType } from '@/models/project'
 import {
   STACK_FRAMEWORKS,
   STACK_LANGUAGES,
   STACK_ORMS,
   STACK_TOOLS,
 } from '@/models/stack'
+
+const BASE_GIT_HUB_LINK = 'https://github.com/sneuder/'
+
+const buildGitHubLink = (path: string) => `${BASE_GIT_HUB_LINK}${path}`
+
+export const ProjectLinkMapper = {
+  [ProjectLinkType.GIT_HUB]: 'Git Hub',
+  [ProjectLinkType.WEB]: 'Web',
+}
+
+export const ProjectLinkIconMapper = {
+  [ProjectLinkType.GIT_HUB]: 'github',
+  [ProjectLinkType.WEB]: 'web',
+}
 
 const projects: Project[] = [
   {
@@ -15,6 +29,16 @@ const projects: Project[] = [
     image:
       'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
     type: ProjectType.SASS,
+    links: [
+      {
+        type: ProjectLinkType.WEB,
+        href: 'https://workspace-page.vercel.app',
+      },
+      {
+        type: ProjectLinkType.GIT_HUB,
+        href: buildGitHubLink('cli-workspace'),
+      },
+    ],
   },
   {
     name: 'Uploader Service',
@@ -24,6 +48,7 @@ const projects: Project[] = [
     image:
       'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
     type: ProjectType.SASS,
+    links: [],
   },
   {
     name: 'Encrypt Service',
@@ -37,6 +62,7 @@ const projects: Project[] = [
     image:
       'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
     type: ProjectType.SASS,
+    links: [],
   },
   {
     name: 'Hotel Management',
@@ -50,6 +76,7 @@ const projects: Project[] = [
     image:
       'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
     type: ProjectType.SASS,
+    links: [],
   },
 ]
 
