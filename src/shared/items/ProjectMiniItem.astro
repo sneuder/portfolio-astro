@@ -15,6 +15,7 @@ import CardBase from '@/shared/cards/CardBase.astro'
 import { ProjectLinkMapper, ProjectLinkIconMapper } from '@/data/projects'
 import Link from '@/shared/Link.astro'
 import Icon, { type Props as IconProps } from '@/shared/Icon.astro'
+import LinkIcon, { type Props as LinkIconProps } from '@/shared/LinkIcon.astro'
 
 interface Props extends Pick<Project, 'name' | 'type' | 'links'> {}
 
@@ -49,21 +50,21 @@ const projectType: TagProps = {
       links.length !== 0 && (
         <div class='container-links'>
           {links.map((link) => {
-            const linkParagraphProps: ParagraphProps = {
-              title: ProjectLinkMapper[link.type],
-              type: TypographyType.TERTIARY,
+            const linkIconsProps: LinkIconProps = {
+              icon: {
+                name: ProjectLinkIconMapper[link.type],
+              },
+              link: {
+                href: link.href,
+                newTab: true,
+              },
+              paragraph: {
+                title: ProjectLinkMapper[link.type],
+                type: TypographyType.TERTIARY,
+              },
             }
 
-            const iconLinkProps:IconProps = {
-              name: ProjectLinkIconMapper[link.type],
-            }
-
-            return (
-              <Link href={link.href} newTab={true}>
-                <Icon {...iconLinkProps} />
-                <Paragraph {...linkParagraphProps} />
-              </Link>
-            )
+            return <LinkIcon {...linkIconsProps} />
           })}
         </div>
       )

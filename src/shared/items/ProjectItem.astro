@@ -7,15 +7,16 @@ import Paragraph, {
 import Header, {
   type Props as HeaderProps,
 } from '@/shared/typography/Header.astro'
-import { TypographyType } from '../typography/schema'
-import Tag from './Tag.astro'
+import { TypographyType } from '@/shared/typography/schema'
+import Tag, { TAG_TYPE, type Props as TagProps } from './Tag.astro'
 import CardBase from '@/shared/cards/CardBase.astro'
+import COLORS from '@/theme/colors'
+import LinkIcon, { type Props as LinkIconProps } from '@/shared/LinkIcon.astro'
+import { ProjectLinkIconMapper, ProjectLinkMapper } from '@/data/projects'
 
-interface Props extends Project {
-  left: boolean
-}
+interface Props extends Project {}
 
-const { name, description, stack, image, left } = Astro.props
+const { name, description, stack, image, links, type } = Astro.props
 
 const headerProjectProps: HeaderProps = {
   title: name,
@@ -29,17 +30,51 @@ const descriptionProjectProp: ParagraphProps = {
     justified: true,
   },
 }
+
+const projectType: TagProps = {
+  title: type,
+  type: TAG_TYPE.TERTIARY,
+}
 ---
 
-<CardBase padding='1rem'>
-  <div class:list={['container', { reverse: left }]}>
-    <Image class='img' src={image} alt={name} width={476} height={271} />
-    <div class='information'>
-      <Header {...headerProjectProps} />
-      <div class='stack'>
-        {stack.map((s) => <Tag title={s} />)}
+<CardBase padding='1rem' backgroundColor={COLORS.LIGHTER_GREY}>
+  <div class:list={['container']}>
+    <Image class='img' src={image} alt={name} width={200} height={113.9} />
+    <div class='container-information'>
+      <div class='container-header'>
+        <Header {...headerProjectProps} />
+        <Tag {...projectType} />
       </div>
       <Paragraph {...descriptionProjectProp} />
+      <div class='container-stack'>
+        <div class='stack'>
+          {stack.map((s) => <Tag title={s} />)}
+        </div>
+
+        {
+          links.length !== 0 && (
+            <div class='container-links'>
+              {links.map((link) => {
+                const linkIconProjectProp: LinkIconProps = {
+                  icon: {
+                    name: ProjectLinkIconMapper[link.type],
+                  },
+                  link: {
+                    href: link.href,
+                    newTab: true,
+                  },
+                  paragraph: {
+                    title: ProjectLinkMapper[link.type],
+                    type: TypographyType.TERTIARY,
+                  },
+                }
+
+                return <LinkIcon {...linkIconProjectProp} />
+              })}
+            </div>
+          )
+        }
+      </div>
     </div>
   </div>
 </CardBase>
@@ -51,31 +86,47 @@ const descriptionProjectProp: ParagraphProps = {
     object-fit: cover;
 
     @media screen and (max-width: 600px) {
-    height: auto;
+      height: auto;
+      width: 100%;
     }
   }
 
   .container {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
 
     @media screen and (max-width: 600px) {
       flex-direction: column !important;
     }
   }
 
-  .reverse {
-    flex-direction: row-reverse;
-  }
-
-  .information {
+  .container-information {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
   }
 
-  .stack {
+  .container-links,
+  .container-stack {
     display: flex;
-    gap: 0.5rem;
+    gap: 1rem;
+
+    .stack {
+      display: flex;
+      gap: 0.5rem;
+    }
+  }
+
+  .container-stack {
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .container-header {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    align-items: center;
   }
 </style>
