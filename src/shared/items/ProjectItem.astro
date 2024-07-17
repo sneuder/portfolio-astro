@@ -8,10 +8,10 @@ import Header, {
   type Props as HeaderProps,
 } from '@/shared/typography/Header.astro'
 import { TypographyType } from '@/shared/typography/schema'
-import Tag, { TAG_TYPE, type Props as TagProps } from './Tag.astro'
+import Tag, { TAG_TYPE, type Props as TagProps } from '../tag/Tag.astro'
 import CardBase from '@/shared/cards/CardBase.astro'
 import COLORS from '@/theme/colors'
-import LinkIcon, { type Props as LinkIconProps } from '@/shared/LinkIcon.astro'
+import LinkIcon, { type Props as LinkIconProps } from '@/shared/link/LinkIcon.astro'
 import { ProjectLinkIconMapper, ProjectLinkMapper } from '@/data/projects'
 
 interface Props extends Project {}

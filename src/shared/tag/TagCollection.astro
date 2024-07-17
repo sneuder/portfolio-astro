@@ -1,0 +1,23 @@
+---
+import type { STACK } from '@/models/stack'
+import Tag, { TAG_TYPE } from './Tag.astro'
+
+interface Props {
+  stack: STACK[],
+  type?: TAG_TYPE
+}
+
+const { stack, type = TAG_TYPE.PRIMARY } = Astro.props
+---
+
+<div>
+  {stack.map((s) => <Tag title={s} type={type}/>)}
+</div>
+
+<style>
+  div {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+</style>

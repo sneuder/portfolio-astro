@@ -1,13 +1,15 @@
 ---
 import projects from '@/data/projects'
+import { ProjectLevel } from '@/models/project'
 import ProjectItem from '@/shared/items/ProjectItem.astro'
 ---
 
 <main>
   {
-    projects.map((project, index) => (
-      <ProjectItem {...project} left={(index + 1) % 2 === 0} />
-    ))
+    projects.map((project) => {
+      if (project.level != ProjectLevel.PRIMARY) return
+      return  <ProjectItem {...project} />
+    })
   }
 </main>
 

@@ -1,0 +1,158 @@
+---
+import type { JSX } from 'astro/jsx-runtime'
+import COLORS from '@/theme/colors'
+import Paragraph, {
+  type Props as ParagraphProps,
+} from './typography/Paragraph.astro'
+import { TypographyType } from './typography/schema'
+
+interface Column {
+  name: string
+  minWidth?: string
+  width?: string
+  hideMobile?: boolean
+}
+
+interface Row {
+  cells: Cell[]
+}
+
+export interface Cell {
+  value?: string
+  component?: {
+    Component: (props: any) => JSX.Element
+    props: { [key: string]: any }
+  }
+  hideMobile?: boolean
+}
+
+export interface Props {
+  columns: Column[]
+  rows: Row[]
+}
+
+const { columns, rows } = Astro.props
+
+const columnsHiddenIndex: number[] = []
+
+columns.forEach((column, index) => {
+  if (!column.hideMobile) return
+  columnsHiddenIndex.push(index)
+})
+---
+
+<table>
+  <thead>
+    <tr class='row-header'>
+      {
+        columns.map((column) => {
+          const headerParagraph: ParagraphProps = {
+            title: column.name,
+            type: TypographyType.TERTIARY,
+          }
+
+          return (
+            <th
+              style={{ minWidth: column.minWidth, width: column.width }}
+              class:list={[{ hideMobile: column.hideMobile }]}>
+              <Paragraph {...headerParagraph} />
+            </th>
+          )
+        })
+      }
+    </tr>
+  </thead>
+  <tbody>
+    {
+      rows.map((row) => (
+        <tr class='rows'>
+          {row.cells.map((cell, index) => {
+            const leftBordered = index === 0
+            const rightBordered = row.cells.length - 1 === index
+
+            const Component = cell.component?.Component
+            const props = cell.component?.props
+
+            const paragraph: ParagraphProps = {
+              title: cell.value || '',
+              type: TypographyType.SECONDARY,
+              format: {
+                bold: true,
+              },
+            }
+
+            const hiddenCell = columnsHiddenIndex.includes(index)
+
+            return (
+              <td
+                class:list={[
+                  {
+                    'left-row-cell': leftBordered,
+                    'right-row-cell': rightBordered,
+                    hideMobile: hiddenCell,
+                  },
+                ]}>
+                {cell.value && <Paragraph {...paragraph} />}
+                {Component && <Component {...props} />}
+              </td>
+            )
+          })}
+        </tr>
+      ))
+    }
+  </tbody>
+</table>
+
+<style
+  define:vars={{
+    lighterGrey: COLORS.LIGHTER_GREY,
+  }}
+>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th,
+  td {
+    padding: 0.5rem;
+    text-align: left;
+  }
+
+  th {
+    text-wrap: nowrap;
+    padding-bottom: 1rem;
+  }
+
+  .row-header {
+    width: 100%;
+
+    th {
+      color: red;
+    }
+  }
+
+  .left-row-cell {
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem;
+  }
+
+  .right-row-cell {
+    border-top-right-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+  }
+
+  .rows {
+    transition: background-color 0.2s;
+  }
+
+  .rows:hover {
+    background-color: var(--lighterGrey);
+  }
+
+  @media screen and (max-width: 600px) {
+    .hideMobile {
+      display: none;
+    }
+  }
+</style>

@@ -1,4 +1,9 @@
-import { ProjectType, type Project, ProjectLinkType } from '@/models/project'
+import {
+  ProjectType,
+  type Project,
+  ProjectLinkType,
+  ProjectLevel,
+} from '@/models/project'
 import {
   STACK_FRAMEWORKS,
   STACK_LANGUAGES,
@@ -39,6 +44,7 @@ const projects: Project[] = [
         href: buildGitHubLink('cli-workspace'),
       },
     ],
+    level: ProjectLevel.PRIMARY,
   },
   {
     name: 'Uploader Service',
@@ -49,6 +55,7 @@ const projects: Project[] = [
       'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
     type: ProjectType.SASS,
     links: [],
+    level: ProjectLevel.PRIMARY,
   },
   {
     name: 'Encrypt Service',
@@ -62,7 +69,17 @@ const projects: Project[] = [
     image:
       'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
     type: ProjectType.SASS,
-    links: [],
+    links: [
+      {
+        type: ProjectLinkType.WEB,
+        href: 'https://workspace-page.vercel.app',
+      },
+      {
+        type: ProjectLinkType.GIT_HUB,
+        href: buildGitHubLink('cli-workspace'),
+      },
+    ],
+    level: ProjectLevel.SECONDARY,
   },
   {
     name: 'Hotel Management',
@@ -77,6 +94,7 @@ const projects: Project[] = [
       'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
     type: ProjectType.SASS,
     links: [],
+    level: ProjectLevel.SECONDARY,
   },
 ]
 

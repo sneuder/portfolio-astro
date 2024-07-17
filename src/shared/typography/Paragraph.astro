@@ -35,6 +35,7 @@ const formats = {
   elipsis: !!format?.elipsis?.lines,
   nowrap: !!format?.noWrap,
   justified: !!format?.justified,
+  bold: !!format?.bold
 }
 ---
 
@@ -54,20 +55,6 @@ const formats = {
     line-height: var(--lineHeight);
     font-size: var(--fontSize);
     color: var(--color);
-  }
-
-  .elipsis {
-    display: -webkit-box;
-    -webkit-line-clamp: var(--elipsisLines);
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
-
-  .nowrap {
-    text-wrap: nowrap;
-  }
-
-  .justified {
-    text-align: justify;
+    width: fit-content;
   }
 </style>

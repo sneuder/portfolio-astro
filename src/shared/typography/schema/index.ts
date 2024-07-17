@@ -16,6 +16,7 @@ export interface BasicProps {
     justified?: boolean
     centered?: boolean
     fontSize?: string
+    bold?: boolean
   }
 }
 

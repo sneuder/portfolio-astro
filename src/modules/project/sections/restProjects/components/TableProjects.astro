@@ -1,0 +1,76 @@
+---
+import Table, {
+  type Props as TableProps,
+  type Cell as TableCellProps,
+} from '@/shared/Table.astro'
+import projects from '@/data/projects'
+import Tag, { TAG_TYPE } from '@/shared/tag/Tag.astro'
+import TagCollection from '@/shared/tag/TagCollection.astro'
+import { ProjectLevel } from '@/models/project'
+import LinkIconCollection from '@/shared/link/LinkIconCollection.astro'
+
+const tableProjectsProps: TableProps = {
+  columns: [
+    {
+      name: 'Title',
+      minWidth: '100px',
+    },
+    {
+      name: 'Built with',
+      width: '350px',
+      hideMobile: true
+    },
+    {
+      name: 'Type',
+      width: '80px',
+      hideMobile: true
+    },
+    {
+      name: 'Link',
+      width: '80px',
+    },
+  ],
+  rows: [],
+}
+
+projects.forEach((project) => {
+  if (project.level === ProjectLevel.PRIMARY) return
+
+  const cells: TableCellProps[] = [
+    { value: project.name },
+    {
+      component: {
+        Component: TagCollection,
+        props: {
+          stack: project.stack,
+          type: TAG_TYPE.SECONDARY,
+        },
+      },
+    },
+    {
+      component: {
+        Component: Tag,
+        props: {
+          title: project.type,
+          type: TAG_TYPE.TERTIARY,
+        },
+      },
+    },
+    {
+      component: {
+        Component: LinkIconCollection,
+        props: {
+          links: project.links,
+          exclude: {
+            paragraph: true,
+          },
+        },
+      },
+    },
+  ]
+
+  tableProjectsProps.rows.push({ cells })
+})
+---
+
+<Table {...tableProjectsProps} />

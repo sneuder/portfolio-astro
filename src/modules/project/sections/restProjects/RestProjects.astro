@@ -3,18 +3,22 @@ import Header, {
   type Props as HeaderProps,
 } from '@/shared/typography/Header.astro'
 import { TypographyType } from '@/shared/typography/schema'
+import TableProjects from './components/TableProjects.astro'
 
 const headerProjectsProps: HeaderProps = {
   title: 'Other projects',
   type: TypographyType.SECONDARY,
-  format: {
-    centered: true,
-  },
 }
 ---
 
 <section>
   <Header {...headerProjectsProps} />
+  <TableProjects />
 </section>
 
-<style></style>
+<style>
+  section {
+    display: grid;
+    gap: 2rem;
+  }
+</style>

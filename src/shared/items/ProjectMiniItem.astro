@@ -9,13 +9,13 @@ import Paragraph, {
 
 import { TypographyType } from '@/shared/typography/schema'
 import { type Project } from '@/models/project'
-import Tag, { type Props as TagProps, TAG_TYPE } from './Tag.astro'
+import Tag, { type Props as TagProps, TAG_TYPE } from '../tag/Tag.astro'
 import COLORS from '@/theme/colors'
 import CardBase from '@/shared/cards/CardBase.astro'
 import { ProjectLinkMapper, ProjectLinkIconMapper } from '@/data/projects'
-import Link from '@/shared/Link.astro'
-import Icon, { type Props as IconProps } from '@/shared/Icon.astro'
-import LinkIcon, { type Props as LinkIconProps } from '@/shared/LinkIcon.astro'
+import Link from '@/shared/link/Link.astro'
+import Icon, { type Props as IconProps } from '@/shared/icon/Icon.astro'
+import LinkIcon, { type Props as LinkIconProps } from '@/shared/link/LinkIcon.astro'
 
 interface Props extends Pick<Project, 'name' | 'type' | 'links'> {}
 

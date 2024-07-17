@@ -6,6 +6,11 @@ export enum ProjectType {
   TOOL = 'Tool',
 }
 
+export enum ProjectLevel {
+  PRIMARY = 'PRIMARY',
+  SECONDARY = 'SECONDARY',
+}
+
 export enum ProjectLinkType {
   GIT_HUB = 'GIT_HUB',
   WEB = 'WEB',
@@ -23,4 +28,5 @@ export interface Project {
   image: string
   type: ProjectType
   links: ProjectLink[]
+  level: ProjectLevel
 }

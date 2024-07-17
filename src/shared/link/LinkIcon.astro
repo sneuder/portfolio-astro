@@ -1,14 +1,14 @@
 ---
 import Link, { type Props as LinkProps } from './Link.astro'
-import Icon, { type Props as IconProps } from './Icon.astro'
+import Icon, { type Props as IconProps } from '@/shared/icon/Icon.astro'
 import Paragraph, {
   type Props as ParagraphProps,
-} from './typography/Paragraph.astro'
+} from '@/shared/typography/Paragraph.astro'
 
 export interface Props {
   icon: IconProps
   link: LinkProps
-  paragraph: ParagraphProps
+  paragraph?: ParagraphProps
 }
 
 const { icon, link, paragraph } = Astro.props
@@ -16,5 +16,5 @@ const { icon, link, paragraph } = Astro.props
 
 <Link {...link}>
   <Icon {...icon} />
-  <Paragraph {...paragraph} />
+  {paragraph && <Paragraph {...paragraph} />}
 </Link>
