@@ -8,6 +8,7 @@ import { TypographyType } from '@/shared/typography/schema'
 import Icon, { type Props as IconProps } from '@/shared/icon/Icon.astro'
 import COLORS from '@/theme/colors'
 import Link from '@/shared/link/Link.astro'
+import { ProjectLevel } from '@/models/project'
 
 const projectHeader: HeaderProps = {
   title: 'Projects',
@@ -33,13 +34,17 @@ const projectHeaderIcon: IconProps = {
   </div>
   <div class='container-projects'>
     {
-      projects.map((project) => (
-        <ProjectMiniItem
-          name={project.name}
-          type={project.type}
-          links={project.links}
-        />
-      ))
+      projects.map((project) => {
+        if (project.level !== ProjectLevel.PRIMARY) return
+
+        return (
+          <ProjectMiniItem
+            name={project.name}
+            type={project.type}
+            links={project.links}
+          />
+        )
+      })
     }
   </div>
 </div>

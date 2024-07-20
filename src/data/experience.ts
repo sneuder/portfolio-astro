@@ -153,9 +153,9 @@ const experience: Experience[] = [
     generalDescription:
       'I specialized in building robust APIs and user-centric web apps, prioritizing seamless experiences and functionality. Rigorous testing ensures top quality and reliability. I excel in structuring projects, optimizing tech stacks, and creating comprehensive documentation for efficient development and future enhancements',
     mainStack: [
-      STACK_LANGUAGES.JAVA,
       STACK_LANGUAGES.GO,
-      STACK_FRAMEWORKS.SPRING_BOOT,
+      STACK_LANGUAGES.CSHARP,
+      STACK_FRAMEWORKS.DOTNET,
       STACK_LANGUAGES.TYPESCRIPT,
       STACK_LANGUAGES.NODE,
       STACK_DATABASES.MYSQL,

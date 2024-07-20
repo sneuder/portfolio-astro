@@ -7,6 +7,7 @@ import {
 import {
   STACK_FRAMEWORKS,
   STACK_LANGUAGES,
+  STACK_LIBRARIES,
   STACK_ORMS,
   STACK_TOOLS,
 } from '@/models/stack'
@@ -27,13 +28,45 @@ export const ProjectLinkIconMapper = {
 
 const projects: Project[] = [
   {
+    name: 'Project Builder',
+    description:
+      'Streamlines file system operations in Go. With functions for creating, reading, writing, and managing files, this package enhances file handling efficiency for developers.',
+    stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER, STACK_LIBRARIES.GRPC],
+    image:
+      'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    type: ProjectType.SASS,
+    links: [
+      {
+        type: ProjectLinkType.GIT_HUB,
+        href: buildGitHubLink('projects-builder'),
+      },
+    ],
+    level: ProjectLevel.PRIMARY,
+  },
+  {
+    name: 'File System Go',
+    description:
+      'Streamlines file system operations in Go. With functions for creating, reading, writing, and managing files, this package enhances file handling efficiency for developers.',
+    stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER],
+    image:
+      'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    type: ProjectType.PACKAGE,
+    links: [
+      {
+        type: ProjectLinkType.GIT_HUB,
+        href: buildGitHubLink('filesystem'),
+      },
+    ],
+    level: ProjectLevel.PRIMARY,
+  },
+  {
     name: 'CLI Workspace',
     description:
       'Swift Workspace Creator: Simplifies Docker workspaces for teams or individuals. Crafted with Go and Docker, it ensures portable coding environments for seamless collaborations or solo projects.',
     stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER],
     image:
       'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
-    type: ProjectType.SASS,
+    type: ProjectType.TOOL,
     links: [
       {
         type: ProjectLinkType.WEB,
@@ -54,7 +87,12 @@ const projects: Project[] = [
     image:
       'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
     type: ProjectType.SASS,
-    links: [],
+    links: [
+      {
+        type: ProjectLinkType.GIT_HUB,
+        href: buildGitHubLink('uploader-service'),
+      },
+    ],
     level: ProjectLevel.PRIMARY,
   },
   {
@@ -93,7 +131,83 @@ const projects: Project[] = [
     image:
       'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
     type: ProjectType.SASS,
-    links: [],
+    links: [
+      {
+        type: ProjectLinkType.GIT_HUB,
+        href: buildGitHubLink('hotel-management'),
+      },
+    ],
+    level: ProjectLevel.SECONDARY,
+  },
+  {
+    name: 'Weather',
+    description:
+      '',
+    stack: [
+      STACK_LANGUAGES.TYPESCRIPT,
+      STACK_LIBRARIES.REACT,
+      STACK_LIBRARIES.REDUX
+    ],
+    image:
+      'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    type: ProjectType.TOOL,
+    links: [
+      {
+        type: ProjectLinkType.WEB,
+        href: 'https://weather-sneuder.vercel.app',
+      },
+      {
+        type: ProjectLinkType.GIT_HUB,
+        href: buildGitHubLink('weather'),
+      },
+    ],
+    level: ProjectLevel.SECONDARY,
+  },
+  {
+    name: 'Rick and Morty Random',
+    description:
+      '',
+    stack: [
+      STACK_LANGUAGES.TYPESCRIPT,
+      STACK_LIBRARIES.REACT,
+      STACK_LIBRARIES.GRAPHQL
+    ],
+    image:
+      'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    type: ProjectType.TOOL,
+    links: [
+      {
+        type: ProjectLinkType.WEB,
+        href: 'https://rick-and-morty-random.vercel.app',
+      },
+      {
+        type: ProjectLinkType.GIT_HUB,
+        href: buildGitHubLink('rick_and_morty_random'),
+      },
+    ],
+    level: ProjectLevel.SECONDARY,
+  },
+  {
+    name: 'Chairá Login',
+    description:
+      '',
+    stack: [
+      STACK_LANGUAGES.JAVASCRIPT,
+      STACK_LIBRARIES.REACT,
+    ],
+    image:
+      'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    type: ProjectType.PROPOSAL,
+    links: [
+      {
+        type: ProjectLinkType.WEB,
+        href: 'https://chaira-login.vercel.app/',
+      },
+      {
+        type: ProjectLinkType.GIT_HUB,
+        href: buildGitHubLink('chaira_login'),
+      },
+    ],
     level: ProjectLevel.SECONDARY,
   },
 ]

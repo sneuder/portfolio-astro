@@ -6,6 +6,7 @@ export enum STACK_LANGUAGES {
   JAVA = 'Java',
   HTML = 'HTML',
   CSS = 'CSS',
+  CSHARP = "C#"
 }
 
 export enum STACK_ORMS {
@@ -32,13 +33,16 @@ export enum STACK_FRAMEWORKS {
   EXPRESS = 'Express',
   BOOTSTRAP = 'Bootstrap',
   TAILWIND = 'Tailwind',
+  DOTNET = ".NET"
 }
 
 export enum STACK_LIBRARIES {
   REACT = 'React',
   REDUX = 'Redux',
   SOCKETIO = 'Socket.IO',
+  GRAPHQL = 'GraphQL',
   TRPC = 'tRPC',
+  GRPC = 'gRPC',
 }
 
 export enum STACK_TOOLS {
