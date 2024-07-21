@@ -4,7 +4,7 @@ export enum ProjectType {
   SASS = 'SASS',
   PACKAGE = 'Package',
   TOOL = 'Tool',
-  PROPOSAL = 'Proposal'
+  PROPOSAL = 'Proposal',
 }
 
 export enum ProjectLevel {

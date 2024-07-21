@@ -12,6 +12,8 @@ import {
   STACK_TOOLS,
 } from '@/models/stack'
 
+import { getImageFromLocal } from '@/services/dataGetter'
+
 const BASE_GIT_HUB_LINK = 'https://github.com/sneuder/'
 
 const buildGitHubLink = (path: string) => `${BASE_GIT_HUB_LINK}${path}`
@@ -32,8 +34,7 @@ const projects: Project[] = [
     description:
       'Streamlines file system operations in Go. With functions for creating, reading, writing, and managing files, this package enhances file handling efficiency for developers.',
     stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER, STACK_LIBRARIES.GRPC],
-    image:
-      'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    image: await getImageFromLocal('cli-workspace'),
     type: ProjectType.SASS,
     links: [
       {
@@ -48,8 +49,7 @@ const projects: Project[] = [
     description:
       'Streamlines file system operations in Go. With functions for creating, reading, writing, and managing files, this package enhances file handling efficiency for developers.',
     stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER],
-    image:
-      'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    image: await getImageFromLocal('cli-workspace'),
     type: ProjectType.PACKAGE,
     links: [
       {
@@ -64,8 +64,7 @@ const projects: Project[] = [
     description:
       'Swift Workspace Creator: Simplifies Docker workspaces for teams or individuals. Crafted with Go and Docker, it ensures portable coding environments for seamless collaborations or solo projects.',
     stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER],
-    image:
-      'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    image: await getImageFromLocal('cli-workspace'),
     type: ProjectType.TOOL,
     links: [
       {
@@ -84,8 +83,7 @@ const projects: Project[] = [
     description:
       'Created a backend service enabling secure file uploads while seamlessly storing associated data in the database. Implemented robust file handling and database integration for a streamlined user experience.',
     stack: [STACK_LANGUAGES.GO, STACK_ORMS.GORM],
-    image:
-      'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    image: await getImageFromLocal('uploader-service'),
     type: ProjectType.SASS,
     links: [
       {
@@ -104,8 +102,7 @@ const projects: Project[] = [
       STACK_LANGUAGES.TYPESCRIPT,
       STACK_FRAMEWORKS.EXPRESS,
     ],
-    image:
-      'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    image: await getImageFromLocal('encrypt-service'),
     type: ProjectType.SASS,
     links: [
       {
@@ -128,8 +125,7 @@ const projects: Project[] = [
       STACK_FRAMEWORKS.NESTJS,
       STACK_ORMS.MONGOOSE,
     ],
-    image:
-      'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    image: await getImageFromLocal('hotel-management'),
     type: ProjectType.SASS,
     links: [
       {
@@ -141,15 +137,13 @@ const projects: Project[] = [
   },
   {
     name: 'Weather',
-    description:
-      '',
+    description: '',
     stack: [
       STACK_LANGUAGES.TYPESCRIPT,
       STACK_LIBRARIES.REACT,
-      STACK_LIBRARIES.REDUX
+      STACK_LIBRARIES.REDUX,
     ],
-    image:
-      'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    image: await getImageFromLocal('weather'),
     type: ProjectType.TOOL,
     links: [
       {
@@ -165,15 +159,13 @@ const projects: Project[] = [
   },
   {
     name: 'Rick and Morty Random',
-    description:
-      '',
+    description: '',
     stack: [
       STACK_LANGUAGES.TYPESCRIPT,
       STACK_LIBRARIES.REACT,
-      STACK_LIBRARIES.GRAPHQL
+      STACK_LIBRARIES.GRAPHQL,
     ],
-    image:
-      'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    image: await getImageFromLocal('rick-morty'),
     type: ProjectType.TOOL,
     links: [
       {
@@ -189,14 +181,9 @@ const projects: Project[] = [
   },
   {
     name: 'Chairá Login',
-    description:
-      '',
-    stack: [
-      STACK_LANGUAGES.JAVASCRIPT,
-      STACK_LIBRARIES.REACT,
-    ],
-    image:
-      'https://img.freepik.com/free-photo/painting-mountain-lake-with-mountain-background_188544-9126.jpg?size=626&ext=jpg&ga=GA1.1.1141335507.1718755200&semt=ais_user',
+    description: '',
+    stack: [STACK_LANGUAGES.JAVASCRIPT, STACK_LIBRARIES.REACT],
+    image: await getImageFromLocal('login-chaira'),
     type: ProjectType.PROPOSAL,
     links: [
       {
