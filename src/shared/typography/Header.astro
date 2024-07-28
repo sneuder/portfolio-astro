@@ -9,59 +9,38 @@ import {
 
 export interface Props extends BasicProps {}
 
-const { title, type, format } = Astro.props
+const { title, type, style } = Astro.props
 
 const collectionStyles: CollectionStyles = {
   [TypographyType.PRIMARY]: {
     lineHeight: '3.5rem',
-    fontSize: format?.fontSize || '3rem',
+    fontSize: '3rem',
     color: COLORS.DARK_GREY,
   },
   [TypographyType.SECONDARY]: {
     lineHeight: '1.5rem',
-    fontSize: format?.fontSize || '1.5rem',
+    fontSize: '1.5rem',
     color: COLORS.GREY,
   },
   [TypographyType.TERTIARY]: {
     lineHeight: '1.5rem',
-    fontSize: format?.fontSize || '0.875rem',
+    fontSize: '0.875rem',
     color: COLORS.GREY,
   },
   [TypographyType.QUATERNARY]: {
     lineHeight: '1.5rem',
-    fontSize: format?.fontSize || '0.875rem',
+    fontSize: '0.875rem',
     color: COLORS.GREY,
   },
 }
 
 const selectedStyle = collectionStyles[type] as CollectionStyle
-
-const formats = {
-  nowrap: !!format?.noWrap,
-  center: !!format?.centered,
-}
 ---
 
-{
-  type === TypographyType.PRIMARY && (
-    <h1 class:list={[{ ...formats }]}>{title}</h1>
-  )
-}
-{
-  type === TypographyType.SECONDARY && (
-    <h2 class:list={[{ ...formats }]}>{title}</h2>
-  )
-}
-{
-  type === TypographyType.TERTIARY && (
-    <h3 class:list={[{ ...formats }]}>{title}</h3>
-  )
-}
-{
-  type === TypographyType.QUATERNARY && (
-    <h4 class:list={[{ ...formats }]}>{title}</h4>
-  )
-}
+{type === TypographyType.PRIMARY && <h1 style={{ ...style }}>{title}</h1>}
+{type === TypographyType.SECONDARY && <h2 style={{ ...style }}>{title}</h2>}
+{type === TypographyType.TERTIARY && <h3 style={{ ...style }}>{title}</h3>}
+{type === TypographyType.QUATERNARY && <h4 style={{ ...style }}>{title}</h4>}
 
 <style
   define:vars={{
@@ -88,6 +67,4 @@ const formats = {
       font-size: 1.25rem;
     }
   }
-
- 
 </style>

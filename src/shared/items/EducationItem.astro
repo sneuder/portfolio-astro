@@ -18,24 +18,24 @@ const { institute, degree, logo, from, to } = Astro.props
 const instituteHeader: HeaderProps = {
   title: institute,
   type: TypographyType.TERTIARY,
-  format: {
-    noWrap: true,
+  style: {
+    textWrap: 'nowrap',
   },
 }
 
 const degreeParagraph: ParagraphProps = {
   title: degree,
   type: TypographyType.SECONDARY,
-  format: {
-    noWrap: true,
+  style: {
+    textWrap: 'nowrap',
   },
 }
 
 const dateParagraph: ParagraphProps = {
   title: formatDateRangeYear(from, to),
   type: TypographyType.TERTIARY,
-  format: {
-    noWrap: true,
+  style: {
+    textWrap: 'wrap',
   },
 }
 

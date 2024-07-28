@@ -21,12 +21,8 @@ const { header, paragraph } = Astro.props
 
 <section>
   <slot name='BEFORE' />
-  <Header title={header.title} type={paragraph.type} />
-  <Paragraph
-    title={paragraph.title}
-    type={paragraph.type}
-    format={paragraph.format}
-  />
+  <Header {...header} />
+  <Paragraph {...paragraph} />
   <slot name='AFTER' />
 </section>
 

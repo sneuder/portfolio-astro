@@ -1,3 +1,5 @@
+import { type Style } from '@/theme/style'
+
 export enum TypographyType {
   PRIMARY = 'PRIMARY',
   SECONDARY = 'SECONDARY',
@@ -12,12 +14,8 @@ export interface BasicProps {
     elipsis?: {
       lines: number
     }
-    noWrap?: boolean
-    justified?: boolean
-    centered?: boolean
-    fontSize?: string
-    bold?: boolean
   }
+  style?: Style
 }
 
 export interface CollectionStyle {

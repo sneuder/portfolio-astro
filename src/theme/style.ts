@@ -3,6 +3,7 @@ const styleProps = [
   'fontSize',
   'lineHeight',
   'textAlign',
+  'textWrap',
   'fontWeight',
   'backgroundColor',
   'border',

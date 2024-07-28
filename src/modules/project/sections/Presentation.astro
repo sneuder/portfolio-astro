@@ -11,11 +11,11 @@ const heroeProps: HeroeProps = {
     title:
       'Delve into the projects that have been pivotal in shaping my professional trajectory. From groundbreaking applications in Node.js to impactful contributions as a Go Developer Advocate, each project showcases my commitment to pushing boundaries and delivering excellence in software development. Explore how these endeavors have not only demonstrated technical expertise but also fostered innovation within the dynamic tech industry landscape.',
     type: TypographyType.PRIMARY,
-    format: {
-      justified: true,
+    style: {
+      textAlign: 'justify',
     },
   },
 }
 ---
 
-<Heroe header={heroeProps.header} paragraph={heroeProps.paragraph} />
+<Heroe {...heroeProps} />

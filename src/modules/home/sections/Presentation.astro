@@ -17,8 +17,8 @@ const heroeProps: HeroeProps = {
     title:
       "🤘🏻 Hello! My name is Esneider Ospina, Node.js Expert, Go Developer Advocate, and Lifelong Innovator based in Colombia. I created this website as a place to document my journey as I learn new things and share them with you. While I haven’t published any blog posts yet, stay tuned because they're coming soon! I have a passion for learning and creating new ways to solve problems. When I'm not coding, I enjoy playing sports like handball and volleyball. I hope that my future content will help you solve a problem or learn something new.",
     type: TypographyType.PRIMARY,
-    format: {
-      justified: true,
+    style: {
+      textAlign: 'justify',
     },
   },
 }
@@ -33,12 +33,9 @@ const avatarProps: AvatarProps = {
 }
 ---
 
-<Heroe header={heroeProps.header} paragraph={heroeProps.paragraph}>
+<Heroe {...heroeProps}>
   <Avatar
-    src={avatarProps.src}
-    alt={avatarProps.alt}
-    size={avatarProps.size}
-    format={avatarProps.format}
+    {...avatarProps}
     slot={SLOTS.BEFORE}
   />
 </Heroe>

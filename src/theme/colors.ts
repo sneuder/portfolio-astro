@@ -1,4 +1,4 @@
-enum COLORS_LIGHT {
+export enum COLOR {
   DARK_GREY = '#27272a',
   GREY = '#52525b',
   LIGHT_GREY = '#71717a',
@@ -8,7 +8,7 @@ enum COLORS_LIGHT {
 
 const THEMES = {
   light: {
-    ...COLORS_LIGHT,
+    ...COLOR,
   },
   dark: {},
 }

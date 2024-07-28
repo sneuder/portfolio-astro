@@ -18,9 +18,9 @@ const { name, type, links } = Astro.props
 const projectHeader: HeaderProps = {
   title: name,
   type: TypographyType.TERTIARY,
-  format: {
-    noWrap: true,
-  },
+  style: {
+    textWrap: 'wrap',
+  }
 }
 
 const projectType: TagProps = {

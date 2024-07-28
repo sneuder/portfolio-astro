@@ -34,8 +34,9 @@ const positionInfo: headerProps = {
 const descriptionParagraph: ParagraphProps = {
   title: generalDescription,
   type: TypographyType.SECONDARY,
-  format: {
-    justified: true,
+  format: {},
+  style: {
+    textAlign: 'justify',
   },
 }
 
@@ -67,11 +68,7 @@ const dutiesList: ListProps = {
 
   <Header title={positionInfo.title} type={positionInfo.type} />
 
-  <Paragraph
-    title={descriptionParagraph.title}
-    type={descriptionParagraph.type}
-    format={descriptionParagraph.format}
-  />
+  <Paragraph {...descriptionParagraph} />
 
   {
     variant === EXPERIENCE_VARIANT.FULL && (

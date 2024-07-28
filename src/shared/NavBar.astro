@@ -1,4 +1,10 @@
 ---
+import { COLOR } from '@/theme/colors'
+import Paragraph, {
+  type Props as ParagraphProps,
+} from './typography/Paragraph.astro'
+import { TypographyType } from './typography/schema'
+
 interface NavItem {
   name: string
   href: string
@@ -14,7 +20,24 @@ const { navItems } = Astro.props
 <div class='container-navbar'>
   <nav>
     <div class='container-navbar-items'>
-      {navItems.map((item) => <a href={item.href}>{item.name}</a>)}
+      {
+        navItems.map((item) => {
+          const paragraphProps: ParagraphProps = {
+            title: item.name,
+            type: TypographyType.TERTIARY,
+            style: {
+              fontSize: '0.7rem',
+              color: COLOR.DARK_GREY,
+            },
+          }
+
+          return (
+            <a href={item.href}>
+              <Paragraph {...paragraphProps} />
+            </a>
+          )
+        })
+      }
     </div>
   </nav>
 </div>
@@ -44,10 +67,5 @@ const { navItems } = Astro.props
   .container-navbar-items {
     display: flex;
     gap: 1.5rem;
-
-    a {
-      font-weight: 600;
-      font-size: 0.7rem;
-    }
   }
 </style>

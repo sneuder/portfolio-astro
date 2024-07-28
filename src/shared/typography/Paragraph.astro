@@ -9,7 +9,7 @@ import COLORS from '@/theme/colors'
 
 export interface Props extends BasicProps {}
 
-const { title, type, format } = Astro.props
+const { title, type, format, style } = Astro.props
 
 const collectionStyles: CollectionStyles = {
   [TypographyType.PRIMARY]: {
@@ -33,13 +33,14 @@ const selectedStyle = collectionStyles[type] as CollectionStyle
 
 const formats = {
   elipsis: !!format?.elipsis?.lines,
-  nowrap: !!format?.noWrap,
-  justified: !!format?.justified,
-  bold: !!format?.bold
 }
 ---
 
-<p class:list={[{ ...formats }]}>
+<p
+  class:list={[{ ...formats }]}
+  style={{
+    ...style,
+  }}>
   {title}
 </p>
 

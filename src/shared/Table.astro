@@ -76,9 +76,9 @@ columns.forEach((column, index) => {
             const paragraph: ParagraphProps = {
               title: cell.value || '',
               type: TypographyType.SECONDARY,
-              format: {
-                bold: true,
-              },
+              style: {
+                fontWeight: 'bold'
+              }
             }
 
             const hiddenCell = columnsHiddenIndex.includes(index)

@@ -11,11 +11,11 @@ const heroeProps: HeroeProps = {
     title:
       "Welcome to my professional journey! I'm Esneider Ospina, a passionate Node.js Expert, Go Developer Advocate, and Lifelong Innovator based in Colombia. With years of hands-on experience and a deep love for technology, I have honed my skills in developing robust, scalable applications and advocating for the Go programming language. My dedication to innovation drives me to continuously explore new technologies and methodologies, ensuring I stay at the forefront of the ever-evolving tech landscape. Join me as I share the milestones, accomplishments, and expertise that have shaped my career.",
     type: TypographyType.PRIMARY,
-    format: {
-      justified: true,
+    style: {
+      textAlign: 'justify',
     },
   },
 }
 ---
 
-<Heroe header={heroeProps.header} paragraph={heroeProps.paragraph} />
+<Heroe {...heroeProps} />
