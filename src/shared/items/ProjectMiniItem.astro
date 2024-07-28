@@ -10,10 +10,11 @@ import COLORS from '@/theme/colors'
 import CardBase from '@/shared/cards/CardBase.astro'
 import { ProjectLinkMapper, ProjectLinkIconMapper } from '@/data/projects'
 import LinkIcon, { type Props as LinkIconProps } from '@/shared/link/LinkIcon.astro'
+import LinkLocal from '@/shared/link/LinkLocal.astro'
 
-interface Props extends Pick<Project, 'name' | 'type' | 'links'> {}
+interface Props extends Pick<Project, 'name' | 'type' | 'links' | 'localLink'> {}
 
-const { name, type, links } = Astro.props
+const { name, type, links, localLink } = Astro.props
 
 const projectHeader: HeaderProps = {
   title: name,
@@ -32,11 +33,13 @@ const projectType: TagProps = {
 <CardBase backgroundColor={COLORS.LIGHTER_GREY}>
   <div class='container-project'>
     <div class='container-information'>
-      <Header
-        title={projectHeader.title}
-        type={projectHeader.type}
-        format={projectHeader.format}
-      />
+      <LinkLocal href={localLink} directPage='projects'>
+        <Header
+          title={projectHeader.title}
+          type={projectHeader.type}
+          format={projectHeader.format}
+        />
+      </LinkLocal>
       <Tag {...projectType} />
     </div>
 

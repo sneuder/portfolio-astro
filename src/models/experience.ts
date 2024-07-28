@@ -25,4 +25,5 @@ export interface Experience {
   generalDescription: string
   mainStack: STACK[]
   restStack: STACK[]
+  localLink: string
 }

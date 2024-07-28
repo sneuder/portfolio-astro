@@ -16,7 +16,7 @@ import { ProjectLinkIconMapper, ProjectLinkMapper } from '@/data/projects'
 
 interface Props extends Project {}
 
-const { name, description, stack, image, links, type } = Astro.props
+const { name, description, stack, image, links, type, localLink } = Astro.props
 
 const headerProjectProps: HeaderProps = {
   title: name,
@@ -36,48 +36,49 @@ const projectType: TagProps = {
   type: TAG_TYPE.TERTIARY,
 }
 ---
-
-<CardBase padding='1rem' backgroundColor={COLORS.LIGHTER_GREY}>
-  <div class:list={['container']}>
-    <Image class='img' src={image} alt={name} width={200} height={113.9} />
-    <div class='container-information'>
-      <div class='container-header'>
-        <Header {...headerProjectProps} />
-        <Tag {...projectType} />
-      </div>
-      <Paragraph {...descriptionProjectProp} />
-      <div class='container-stack'>
-        <div class='stack'>
-          {stack.map((s) => <Tag title={s} />)}
+<div id={localLink}>
+  <CardBase padding='1rem' backgroundColor={COLORS.LIGHTER_GREY}>
+    <div class:list={['container']}>
+      <Image class='img' src={image} alt={name} width={200} height={113.9} />
+      <div class='container-information'>
+        <div class='container-header'>
+          <Header {...headerProjectProps} />
+          <Tag {...projectType} />
         </div>
-
-        {
-          links.length !== 0 && (
-            <div class='container-links'>
-              {links.map((link) => {
-                const linkIconProjectProp: LinkIconProps = {
-                  icon: {
-                    name: ProjectLinkIconMapper[link.type],
-                  },
-                  link: {
-                    href: link.href,
-                    newTab: true,
-                  },
-                  paragraph: {
-                    title: ProjectLinkMapper[link.type],
-                    type: TypographyType.TERTIARY,
-                  },
-                }
-
-                return <LinkIcon {...linkIconProjectProp} />
-              })}
-            </div>
-          )
-        }
+        <Paragraph {...descriptionProjectProp} />
+        <div class='container-stack'>
+          <div class='stack'>
+            {stack.map((s) => <Tag title={s} />)}
+          </div>
+  
+          {
+            links.length !== 0 && (
+              <div class='container-links'>
+                {links.map((link) => {
+                  const linkIconProjectProp: LinkIconProps = {
+                    icon: {
+                      name: ProjectLinkIconMapper[link.type],
+                    },
+                    link: {
+                      href: link.href,
+                      newTab: true,
+                    },
+                    paragraph: {
+                      title: ProjectLinkMapper[link.type],
+                      type: TypographyType.TERTIARY,
+                    },
+                  }
+  
+                  return <LinkIcon {...linkIconProjectProp} />
+                })}
+              </div>
+            )
+          }
+        </div>
       </div>
     </div>
-  </div>
-</CardBase>
+  </CardBase>
+</div>
 
 <style>
   .img {

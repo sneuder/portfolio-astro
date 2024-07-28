@@ -43,6 +43,7 @@ const projects: Project[] = [
       },
     ],
     level: ProjectLevel.PRIMARY,
+    localLink: 'project-builder',
   },
   {
     name: 'File System Go',
@@ -58,6 +59,7 @@ const projects: Project[] = [
       },
     ],
     level: ProjectLevel.PRIMARY,
+    localLink: 'file-system-go',
   },
   {
     name: 'CLI Workspace',
@@ -77,6 +79,7 @@ const projects: Project[] = [
       },
     ],
     level: ProjectLevel.PRIMARY,
+    localLink: 'cli-workspace',
   },
   {
     name: 'Uploader Service',
@@ -92,6 +95,7 @@ const projects: Project[] = [
       },
     ],
     level: ProjectLevel.PRIMARY,
+    localLink: 'uploader-service',
   },
   {
     name: 'Encrypt Service',
@@ -115,6 +119,7 @@ const projects: Project[] = [
       },
     ],
     level: ProjectLevel.SECONDARY,
+    localLink: 'encrypt-service',
   },
   {
     name: 'Hotel Management',
@@ -134,6 +139,7 @@ const projects: Project[] = [
       },
     ],
     level: ProjectLevel.SECONDARY,
+    localLink: 'hotel-management',
   },
   {
     name: 'Weather',
@@ -156,6 +162,7 @@ const projects: Project[] = [
       },
     ],
     level: ProjectLevel.SECONDARY,
+    localLink: 'weather',
   },
   {
     name: 'Rick and Morty Random',
@@ -178,6 +185,7 @@ const projects: Project[] = [
       },
     ],
     level: ProjectLevel.SECONDARY,
+    localLink: 'rick-morty-random',
   },
   {
     name: 'Chairá Login',
@@ -196,6 +204,7 @@ const projects: Project[] = [
       },
     ],
     level: ProjectLevel.SECONDARY,
+    localLink: 'chaira-login',
   },
 ]
 

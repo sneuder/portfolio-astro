@@ -44,6 +44,7 @@ const experience: Experience[] = [
       STACK_LIBRARIES.TRPC,
     ],
     restStack: [],
+    localLink: 'torneosgg',
   },
   {
     companyName: 'Imagine Apps',
@@ -86,6 +87,7 @@ const experience: Experience[] = [
       STACK_ORMS.TYPEORM,
     ],
     restStack: [],
+    localLink: 'imagineapps',
   },
   {
     companyName: 'Blockdemy',
@@ -123,6 +125,7 @@ const experience: Experience[] = [
       STACK_PLATFORMS.WEBFLOW,
     ],
     restStack: [],
+    localLink: 'blockdemy',
   },
   {
     companyName: 'Amazonias RGA',
@@ -161,6 +164,7 @@ const experience: Experience[] = [
       STACK_DATABASES.MYSQL,
     ],
     restStack: [],
+    localLink: 'amazoniasrga',
   },
 ]
 

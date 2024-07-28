@@ -1,0 +1,15 @@
+---
+import Link, { type Props as LinkProps } from './Link.astro'
+
+interface Props extends LinkProps {
+  directPage?: string
+}
+
+const { directPage, ...linkProps } = Astro.props
+linkProps.href = `#${linkProps.href}`
+if (directPage) linkProps.href = `/${directPage}/${linkProps.href}`
+---
+
+<Link {...linkProps}>
+  <slot />
+</Link>

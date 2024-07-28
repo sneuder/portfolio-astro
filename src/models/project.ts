@@ -30,4 +30,5 @@ export interface Project {
   type: ProjectType
   links: ProjectLink[]
   level: ProjectLevel
+  localLink: string
 }

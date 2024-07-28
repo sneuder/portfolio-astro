@@ -13,6 +13,7 @@ import List, {
   LIST_TYPE,
   type Props as ListProps,
 } from '@/shared/typography/List.astro'
+import LinkLocal from '@/shared/link/LinkLocal.astro'
 
 export enum EXPERIENCE_VARIANT {
   MINIMAL = 'MINIMAL',
@@ -23,8 +24,14 @@ export interface Props extends Experience {
   variant: EXPERIENCE_VARIANT
 }
 
-const { companyName, generalDescription, mainStack, lastPosition, variant } =
-  Astro.props
+const {
+  companyName,
+  generalDescription,
+  mainStack,
+  lastPosition,
+  variant,
+  localLink,
+} = Astro.props
 
 const positionInfo: headerProps = {
   title: `${companyName} · ${lastPosition.name}`,
@@ -60,13 +67,14 @@ const dutiesList: ListProps = {
 }
 ---
 
-<div class='container'>
+<div class='container' id={localLink}>
   <div class='date'>
     <div></div>
     <Paragraph title={dateParagraph.title} type={dateParagraph.type} />
   </div>
-
-  <Header title={positionInfo.title} type={positionInfo.type} />
+  <LinkLocal href={localLink} directPage='experience'>
+    <Header title={positionInfo.title} type={positionInfo.type} />
+  </LinkLocal>
 
   <Paragraph {...descriptionParagraph} />
 
