@@ -7,16 +7,16 @@ const getDataFromLocalBase = (src: string, typeFile: FormatFile) => {
 }
 
 export const getImageProjectFromLocal = getDataFromLocalBase(
-  'assets/imgs/projects',
+  'imgs/projects',
   FormatImage.WEBP,
 )
 
 export const getImageEducationFromLocal = getDataFromLocalBase(
-  'assets/imgs/education',
+  'imgs/education',
   FormatImage.WEBP,
 )
 
 export const getImageBrandFromLocal = getDataFromLocalBase(
-  'assets/imgs/brand',
+  'imgs/brand',
   FormatImage.WEBP,
 )
