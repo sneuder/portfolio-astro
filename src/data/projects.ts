@@ -12,7 +12,7 @@ import {
   STACK_TOOLS,
 } from '@/models/stack'
 
-import { getImageFromLocal } from '@/services/dataGetter'
+import { getImageProjectFromLocal } from '@/services/dataGetter'
 
 const BASE_GIT_HUB_LINK = 'https://github.com/sneuder/'
 
@@ -34,7 +34,7 @@ const projects: Project[] = [
     description:
       'Streamlines file system operations in Go. With functions for creating, reading, writing, and managing files, this package enhances file handling efficiency for developers.',
     stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER, STACK_LIBRARIES.GRPC],
-    image: await getImageFromLocal('cli-workspace'),
+    image: await getImageProjectFromLocal('process'),
     type: ProjectType.SASS,
     links: [
       {
@@ -49,7 +49,7 @@ const projects: Project[] = [
     description:
       'Streamlines file system operations in Go. With functions for creating, reading, writing, and managing files, this package enhances file handling efficiency for developers.',
     stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER],
-    image: await getImageFromLocal('cli-workspace'),
+    image: await getImageProjectFromLocal('file-system'),
     type: ProjectType.PACKAGE,
     links: [
       {
@@ -64,7 +64,7 @@ const projects: Project[] = [
     description:
       'Swift Workspace Creator: Simplifies Docker workspaces for teams or individuals. Crafted with Go and Docker, it ensures portable coding environments for seamless collaborations or solo projects.',
     stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER],
-    image: await getImageFromLocal('cli-workspace'),
+    image: await getImageProjectFromLocal('cli-workspace'),
     type: ProjectType.TOOL,
     links: [
       {
@@ -83,7 +83,7 @@ const projects: Project[] = [
     description:
       'Created a backend service enabling secure file uploads while seamlessly storing associated data in the database. Implemented robust file handling and database integration for a streamlined user experience.',
     stack: [STACK_LANGUAGES.GO, STACK_ORMS.GORM],
-    image: await getImageFromLocal('uploader-service'),
+    image: await getImageProjectFromLocal('uploader-service'),
     type: ProjectType.SASS,
     links: [
       {
@@ -102,7 +102,7 @@ const projects: Project[] = [
       STACK_LANGUAGES.TYPESCRIPT,
       STACK_FRAMEWORKS.EXPRESS,
     ],
-    image: await getImageFromLocal('encrypt-service'),
+    image: await getImageProjectFromLocal('encrypt-service'),
     type: ProjectType.SASS,
     links: [
       {
@@ -125,7 +125,7 @@ const projects: Project[] = [
       STACK_FRAMEWORKS.NESTJS,
       STACK_ORMS.MONGOOSE,
     ],
-    image: await getImageFromLocal('hotel-management'),
+    image: await getImageProjectFromLocal('hotel-management'),
     type: ProjectType.SASS,
     links: [
       {
@@ -143,7 +143,7 @@ const projects: Project[] = [
       STACK_LIBRARIES.REACT,
       STACK_LIBRARIES.REDUX,
     ],
-    image: await getImageFromLocal('weather'),
+    image: await getImageProjectFromLocal('weather'),
     type: ProjectType.TOOL,
     links: [
       {
@@ -165,7 +165,7 @@ const projects: Project[] = [
       STACK_LIBRARIES.REACT,
       STACK_LIBRARIES.GRAPHQL,
     ],
-    image: await getImageFromLocal('rick-morty'),
+    image: await getImageProjectFromLocal('rick-morty'),
     type: ProjectType.TOOL,
     links: [
       {
@@ -183,7 +183,7 @@ const projects: Project[] = [
     name: 'Chairá Login',
     description: '',
     stack: [STACK_LANGUAGES.JAVASCRIPT, STACK_LIBRARIES.REACT],
-    image: await getImageFromLocal('login-chaira'),
+    image: await getImageProjectFromLocal('login-chaira'),
     type: ProjectType.PROPOSAL,
     links: [
       {

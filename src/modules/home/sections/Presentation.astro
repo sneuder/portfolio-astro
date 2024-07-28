@@ -6,6 +6,7 @@ import Avatar, {
 import { TypographyType } from '@/shared/typography/schema'
 
 import Heroe, { type Props as HeroeProps, SLOTS } from '@/shared/layouts/Heroe.astro'
+import { getImageBrandFromLocal } from '@/services/dataGetter'
 
 const heroeProps: HeroeProps = {
   header: {
@@ -24,8 +25,8 @@ const heroeProps: HeroeProps = {
 }
 
 const avatarProps: AvatarProps = {
-  src: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7GNQhrlzrEWBt4hyfc5Nz5VI_FA5n4k0Sbg&s',
-  alt: 'My avatar',
+  src: await getImageBrandFromLocal('sneuder'),
+  alt: 'Sneuder',
   size: 84,
   format: {
     shape: AvatarShape.SQUARE,

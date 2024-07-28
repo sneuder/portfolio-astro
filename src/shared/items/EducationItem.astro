@@ -10,6 +10,7 @@ import Avatar, {
   AvatarShape,
   type Props as AvatarProps,
 } from '@/shared/Avatar.astro'
+import { getImageEducationFromLocal } from '@/services/dataGetter'
 
 interface Props extends Education {}
 
@@ -40,7 +41,7 @@ const dateParagraph: ParagraphProps = {
 }
 
 const avatarInstitute: AvatarProps = {
-  src: logo,
+  src: await getImageEducationFromLocal(logo),
   alt: institute,
   size: 30,
   format: {
