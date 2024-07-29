@@ -20,15 +20,15 @@ const educationHeader: HeaderProps = {
 
 const projectHeaderIcon: IconProps = {
   name: 'experience',
-  color: COLORS.DARK_GREY
+  color: COLORS.GREY
 }
 ---
 
 <CardBase>
   <div class='container'>
     <div class='container-header'>
-      <Icon {...projectHeaderIcon} />
       <Header {...educationHeader} />
+      <Icon {...projectHeaderIcon} />
     </div>
     <div class='container-education'>
       {
@@ -55,6 +55,7 @@ const projectHeaderIcon: IconProps = {
 
   .container-header {
     display: flex;
+    justify-content: space-between;
     gap: 1rem;
     align-items: center;
   }

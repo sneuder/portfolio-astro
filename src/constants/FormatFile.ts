@@ -4,4 +4,8 @@ export enum FormatImage {
   SVG = 'svg',
 }
 
-export type FormatFile = FormatImage
+export enum FormatDoc {
+  PDF = 'pdf',
+}
+
+export type FormatFile = FormatImage | FormatDoc

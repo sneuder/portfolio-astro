@@ -1,0 +1,21 @@
+---
+import ExperienceItem, {
+  EXPERIENCE_VARIANT,
+} from '@/shared/items/ExperienceItem.astro'
+import experience from '@/data/experience'
+---
+
+<div>
+  {
+    experience.map((exp) => (
+      <ExperienceItem {...exp} variant={EXPERIENCE_VARIANT.MINIMAL} />
+    ))
+  }
+</div>
+
+<style>
+  div {
+    display: grid;
+    gap: 3rem;
+  }
+</style>

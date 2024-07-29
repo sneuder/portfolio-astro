@@ -1,4 +1,4 @@
-import { type FormatFile, FormatImage } from '@/constants/FormatFile'
+import { FormatDoc, type FormatFile, FormatImage } from '@/constants/FormatFile'
 
 const getDataFromLocalBase = (src: string, typeFile: FormatFile) => {
   return async (name: string, type = typeFile) => {
@@ -20,3 +20,5 @@ export const getImageBrandFromLocal = getDataFromLocalBase(
   'imgs/brand',
   FormatImage.WEBP,
 )
+
+export const getDocFromLocal = getDataFromLocalBase('docs', FormatDoc.PDF)

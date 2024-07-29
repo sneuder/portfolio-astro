@@ -5,8 +5,16 @@ import Avatar, {
 } from '@/shared/Avatar.astro'
 import { TypographyType } from '@/shared/typography/schema'
 
-import Heroe, { type Props as HeroeProps, SLOTS } from '@/shared/layouts/Heroe.astro'
-import { getImageBrandFromLocal } from '@/services/dataGetter'
+import Heroe, {
+  type Props as HeroeProps,
+  SLOTS,
+} from '@/shared/layouts/Heroe.astro'
+import { getDocFromLocal, getImageBrandFromLocal } from '@/services/dataGetter'
+
+import LinkIcon, {
+  type Props as LinkIconProps,
+} from '@/shared/link/LinkIcon.astro'
+import { ProjectLinkIconMapper } from '@/data/projects'
 
 const heroeProps: HeroeProps = {
   header: {
@@ -32,11 +40,25 @@ const avatarProps: AvatarProps = {
     shape: AvatarShape.SQUARE,
   },
 }
+
+const linkIconResumeProps: LinkIconProps = {
+  icon: {
+    name: ProjectLinkIconMapper.WEB,
+  },
+  link: {
+    href: await getDocFromLocal('Esneider_Ospina'),
+    newTab: true,
+  },
+  paragraph: {
+    title: 'Resume',
+    type: TypographyType.SECONDARY,
+  },
+}
 ---
 
 <Heroe {...heroeProps}>
-  <Avatar
-    {...avatarProps}
-    slot={SLOTS.BEFORE}
-  />
+  <Avatar {...avatarProps} slot={SLOTS.BEFORE} />
+  <div slot={SLOTS.AFTER}>
+    <LinkIcon {...linkIconResumeProps} />
+  </div>
 </Heroe>

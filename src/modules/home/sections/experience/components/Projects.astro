@@ -21,16 +21,16 @@ const projectHeader: HeaderProps = {
 
 const projectHeaderIcon: IconProps = {
   name: 'project',
-  color: COLORS.DARK_GREY,
+  color: COLORS.GREY,
 }
 ---
 
 <div class='container'>
   <div class='container-header'>
-    <Icon {...projectHeaderIcon} />
     <Link href='/projects'>
       <Header {...projectHeader} />
     </Link>
+    <Icon {...projectHeaderIcon} />
   </div>
   <div class='container-projects'>
     {
@@ -59,6 +59,7 @@ const projectHeaderIcon: IconProps = {
 
   .container-header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     gap: 1rem;
   }
