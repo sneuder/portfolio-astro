@@ -9,7 +9,8 @@ export interface Props {
 export enum TAG_TYPE {
   PRIMARY = 'PRIMARY',
   SECONDARY = 'SECONDARY',
-  TERTIARY = "TERTIARY"
+  TERTIARY = "TERTIARY",
+  QUATERNARY = "QUATERNARY",
 }
 
 const { title, type = TAG_TYPE.PRIMARY } = Astro.props
@@ -22,6 +23,7 @@ const colors = enumToObject(COLORS)
       primary: type === TAG_TYPE.PRIMARY,
       secondary: type === TAG_TYPE.SECONDARY,
       tertiary: type === TAG_TYPE.TERTIARY,
+      quaternary: type === TAG_TYPE.QUATERNARY,
     },
   ]}>
   {title}
@@ -52,5 +54,11 @@ const colors = enumToObject(COLORS)
     background-color: var(--white);
     color: var(--light_grey);
     border-color: var(--light_grey);
+  }
+
+  .quaternary {
+    background-color: var(--white);
+    color: var(--light_grey);
+    border-color: transparent;
   }
 </style>
