@@ -6,8 +6,6 @@ import Header, {
   type Props as HeaderProps,
 } from '@/shared/typography/Header.astro'
 import { TypographyType } from '@/shared/typography/schema'
-import Icon, { type Props as IconProps } from '@/shared/icon/Icon.astro'
-import COLORS from '@/theme/colors'
 
 const educationHeader: HeaderProps = {
   title: 'Education',
@@ -18,17 +16,12 @@ const educationHeader: HeaderProps = {
   },
 }
 
-const projectHeaderIcon: IconProps = {
-  name: 'experience',
-  color: COLORS.GREY
-}
 ---
 
 <CardBase>
   <div class='container'>
     <div class='container-header'>
       <Header {...educationHeader} />
-      <Icon {...projectHeaderIcon} />
     </div>
     <div class='container-education'>
       {

@@ -12,6 +12,14 @@ export interface Props {
 }
 
 const { icon, link, paragraph } = Astro.props
+
+if (paragraph) {
+  paragraph.style = {
+    ...paragraph.style,
+    lineHeight: '0.8rem',
+  }
+}
+
 ---
 
 <Link {...link}>

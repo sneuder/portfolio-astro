@@ -8,7 +8,7 @@ import { type Project } from '@/models/project'
 import Tag, { type Props as TagProps, TAG_TYPE } from '../tag/Tag.astro'
 import COLORS from '@/theme/colors'
 import CardBase from '@/shared/cards/CardBase.astro'
-import { ProjectLinkMapper, ProjectLinkIconMapper } from '@/data/projects'
+import { ICONS, IconsMapperName } from '@/constants/Icon'
 import LinkIcon, { type Props as LinkIconProps } from '@/shared/link/LinkIcon.astro'
 import LinkLocal from '@/shared/link/LinkLocal.astro'
 
@@ -49,14 +49,14 @@ const projectType: TagProps = {
           {links.map((link) => {
             const linkIconsProps: LinkIconProps = {
               icon: {
-                name: ProjectLinkIconMapper[link.type],
+                name: link.icon,
               },
               link: {
                 href: link.href,
                 newTab: true,
               },
               paragraph: {
-                title: ProjectLinkMapper[link.type],
+                title: IconsMapperName[link.icon],
                 type: TypographyType.TERTIARY,
               },
             }

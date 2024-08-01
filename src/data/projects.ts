@@ -1,9 +1,5 @@
-import {
-  ProjectType,
-  type Project,
-  ProjectLinkType,
-  ProjectLevel,
-} from '@/models/project'
+import { ICONS } from '@/constants/Icon'
+import { ProjectType, type Project, ProjectLevel } from '@/models/project'
 import {
   STACK_FRAMEWORKS,
   STACK_LANGUAGES,
@@ -18,16 +14,6 @@ const BASE_GIT_HUB_LINK = 'https://github.com/sneuder/'
 
 const buildGitHubLink = (path: string) => `${BASE_GIT_HUB_LINK}${path}`
 
-export const ProjectLinkMapper = {
-  [ProjectLinkType.GIT_HUB]: 'Git Hub',
-  [ProjectLinkType.WEB]: 'Web',
-}
-
-export const ProjectLinkIconMapper = {
-  [ProjectLinkType.GIT_HUB]: 'github',
-  [ProjectLinkType.WEB]: 'web',
-}
-
 const projects: Project[] = [
   {
     name: 'Project Builder',
@@ -38,7 +24,7 @@ const projects: Project[] = [
     type: ProjectType.SASS,
     links: [
       {
-        type: ProjectLinkType.GIT_HUB,
+        icon: ICONS.GITHUB,
         href: buildGitHubLink('projects-builder'),
       },
     ],
@@ -54,7 +40,7 @@ const projects: Project[] = [
     type: ProjectType.PACKAGE,
     links: [
       {
-        type: ProjectLinkType.GIT_HUB,
+        icon: ICONS.GITHUB,
         href: buildGitHubLink('filesystem'),
       },
     ],
@@ -70,11 +56,11 @@ const projects: Project[] = [
     type: ProjectType.TOOL,
     links: [
       {
-        type: ProjectLinkType.WEB,
+        icon: ICONS.WEB,
         href: 'https://workspace-page.vercel.app',
       },
       {
-        type: ProjectLinkType.GIT_HUB,
+        icon: ICONS.GITHUB,
         href: buildGitHubLink('cli-workspace'),
       },
     ],
@@ -90,7 +76,7 @@ const projects: Project[] = [
     type: ProjectType.SASS,
     links: [
       {
-        type: ProjectLinkType.GIT_HUB,
+        icon: ICONS.GITHUB,
         href: buildGitHubLink('uploader-service'),
       },
     ],
@@ -110,11 +96,11 @@ const projects: Project[] = [
     type: ProjectType.SASS,
     links: [
       {
-        type: ProjectLinkType.WEB,
+        icon: ICONS.WEB,
         href: 'https://workspace-page.vercel.app',
       },
       {
-        type: ProjectLinkType.GIT_HUB,
+        icon: ICONS.GITHUB,
         href: buildGitHubLink('cli-workspace'),
       },
     ],
@@ -134,7 +120,7 @@ const projects: Project[] = [
     type: ProjectType.SASS,
     links: [
       {
-        type: ProjectLinkType.GIT_HUB,
+        icon: ICONS.GITHUB,
         href: buildGitHubLink('hotel-management'),
       },
     ],
@@ -153,11 +139,11 @@ const projects: Project[] = [
     type: ProjectType.TOOL,
     links: [
       {
-        type: ProjectLinkType.WEB,
+        icon: ICONS.WEB,
         href: 'https://weather-sneuder.vercel.app',
       },
       {
-        type: ProjectLinkType.GIT_HUB,
+        icon: ICONS.GITHUB,
         href: buildGitHubLink('weather'),
       },
     ],
@@ -176,11 +162,11 @@ const projects: Project[] = [
     type: ProjectType.TOOL,
     links: [
       {
-        type: ProjectLinkType.WEB,
+        icon: ICONS.WEB,
         href: 'https://rick-and-morty-random.vercel.app',
       },
       {
-        type: ProjectLinkType.GIT_HUB,
+        icon: ICONS.GITHUB,
         href: buildGitHubLink('rick_and_morty_random'),
       },
     ],
@@ -195,11 +181,11 @@ const projects: Project[] = [
     type: ProjectType.PROPOSAL,
     links: [
       {
-        type: ProjectLinkType.WEB,
+        icon: ICONS.WEB,
         href: 'https://chaira-login.vercel.app/',
       },
       {
-        type: ProjectLinkType.GIT_HUB,
+        icon: ICONS.GITHUB,
         href: buildGitHubLink('chaira_login'),
       },
     ],

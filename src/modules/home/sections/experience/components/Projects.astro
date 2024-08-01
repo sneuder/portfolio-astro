@@ -5,8 +5,6 @@ import Header, {
   type Props as HeaderProps,
 } from '@/shared/typography/Header.astro'
 import { TypographyType } from '@/shared/typography/schema'
-import Icon, { type Props as IconProps } from '@/shared/icon/Icon.astro'
-import COLORS from '@/theme/colors'
 import Link from '@/shared/link/Link.astro'
 import { ProjectLevel } from '@/models/project'
 
@@ -19,10 +17,6 @@ const projectHeader: HeaderProps = {
   },
 }
 
-const projectHeaderIcon: IconProps = {
-  name: 'project',
-  color: COLORS.GREY,
-}
 ---
 
 <div class='container'>
@@ -30,7 +24,6 @@ const projectHeaderIcon: IconProps = {
     <Link href='/projects'>
       <Header {...projectHeader} />
     </Link>
-    <Icon {...projectHeaderIcon} />
   </div>
   <div class='container-projects'>
     {

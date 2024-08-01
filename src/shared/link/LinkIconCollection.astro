@@ -1,5 +1,5 @@
 ---
-import { ProjectLinkIconMapper, ProjectLinkMapper } from '@/data/projects'
+import { IconMapper, ProjectLinkMapper } from '@/data/projects'
 import { TypographyType } from '@/shared/typography/schema'
 import LinkIcon, { type Props as LinkIconProps } from './LinkIcon.astro'
 import type { ProjectLink } from '@/models/project'
@@ -22,7 +22,7 @@ const gap = exclude?.paragraph ? "0.5rem" : "1.25rem"
       links.map((link) => {
         const linkIconsProps: LinkIconProps = {
           icon: {
-            name: ProjectLinkIconMapper[link.type],
+            name: IconMapper[link.icon],
           },
           link: {
             href: link.href,
@@ -30,7 +30,7 @@ const gap = exclude?.paragraph ? "0.5rem" : "1.25rem"
           },
           ...(!exclude?.paragraph && {
             paragraph: {
-              title: ProjectLinkMapper[link.type],
+              title: ProjectLinkMapper[link.icon],
               type: TypographyType.TERTIARY,
             },
           }),

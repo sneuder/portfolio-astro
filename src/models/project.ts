@@ -1,3 +1,4 @@
+import type { ICONS } from '@/constants/Icon'
 import { type STACK } from './stack'
 
 export enum ProjectType {
@@ -12,13 +13,8 @@ export enum ProjectLevel {
   SECONDARY = 'SECONDARY',
 }
 
-export enum ProjectLinkType {
-  GIT_HUB = 'GIT_HUB',
-  WEB = 'WEB',
-}
-
 export interface ProjectLink {
-  type: ProjectLinkType
+  icon: ICONS
   href: string
 }
 

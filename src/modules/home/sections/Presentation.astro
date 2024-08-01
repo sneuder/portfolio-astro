@@ -14,7 +14,9 @@ import { getDocFromLocal, getImageBrandFromLocal } from '@/services/dataGetter'
 import LinkIcon, {
   type Props as LinkIconProps,
 } from '@/shared/link/LinkIcon.astro'
-import { ProjectLinkIconMapper } from '@/data/projects'
+import { ICONS, IconsMapperName } from '@/constants/Icon'
+
+import { COLOR } from '@/theme/colors'
 
 const heroeProps: HeroeProps = {
   header: {
@@ -41,24 +43,78 @@ const avatarProps: AvatarProps = {
   },
 }
 
-const linkIconResumeProps: LinkIconProps = {
-  icon: {
-    name: ProjectLinkIconMapper.WEB,
+const linksIconsCollectionProps: LinkIconProps[] = [
+  {
+    icon: {
+      name: ICONS.WEB,
+    },
+    link: {
+      href: await getDocFromLocal('Esneider_Ospina'),
+      newTab: true,
+    },
+    paragraph: {
+      title: 'Resume',
+      type: TypographyType.SECONDARY,
+      style: {
+        fontWeight: '600',
+        color: COLOR.LIGHT_GREY,
+      },
+    },
   },
-  link: {
-    href: await getDocFromLocal('Esneider_Ospina'),
-    newTab: true,
+  {
+    icon: {
+      name: ICONS.LINKEDIN,
+    },
+    link: {
+      href: 'https://www.linkedin.com/in/esneider-fullstackdeveloper/',
+      newTab: true,
+    },
+    paragraph: {
+      title: IconsMapperName[ICONS.LINKEDIN],
+      type: TypographyType.SECONDARY,
+      style: {
+        fontWeight: '600',
+        color: COLOR.LIGHT_GREY,
+      },
+    },
   },
-  paragraph: {
-    title: 'Resume',
-    type: TypographyType.SECONDARY,
+  {
+    icon: {
+      name: ICONS.GITHUB,
+    },
+    link: {
+      href: 'https://github.com/sneuder',
+      newTab: true,
+    },
+    paragraph: {
+      title: IconsMapperName[ICONS.GITHUB],
+      type: TypographyType.SECONDARY,
+      style: {
+        fontWeight: '600',
+        color: COLOR.LIGHT_GREY,
+      },
+    },
   },
-}
+]
+
+
 ---
 
 <Heroe {...heroeProps}>
   <Avatar {...avatarProps} slot={SLOTS.BEFORE} />
   <div slot={SLOTS.AFTER}>
-    <LinkIcon {...linkIconResumeProps} />
+    {
+      linksIconsCollectionProps.map((linkIconProps) => (
+        <LinkIcon {...linkIconProps} />
+      ))
+    }
   </div>
 </Heroe>
+
+<style>
+  div {
+    margin-top: -1.8rem;
+    display: flex;
+    gap: 1.25rem;
+  }
+</style>
