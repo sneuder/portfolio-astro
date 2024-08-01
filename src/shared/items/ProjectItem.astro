@@ -12,7 +12,7 @@ import Tag, { TAG_TYPE, type Props as TagProps } from '../tag/Tag.astro'
 import LinkIcon, {
   type Props as LinkIconProps,
 } from '@/shared/link/LinkIcon.astro'
-import { IconMapper, ProjectLinkMapper } from '@/data/projects'
+import { IconsMapperName } from '@/constants/Icon'
 
 interface Props extends Project {}
 
@@ -51,14 +51,14 @@ const projectType: TagProps = {
           {links.map((link) => {
             const linkIconProjectProp: LinkIconProps = {
               icon: {
-                name: IconMapper[link.icon],
+                name: link.icon,
               },
               link: {
                 href: link.href,
                 newTab: true,
               },
               paragraph: {
-                title: ProjectLinkMapper[link.icon],
+                title: IconsMapperName[link.icon],
                 type: TypographyType.TERTIARY,
               },
             }

@@ -7,12 +7,9 @@ import {
   STACK_ORMS,
   STACK_TOOLS,
 } from '@/models/stack'
+import { buildGitHubLink } from '@/services/builderLink'
 
 import { getImageProjectFromLocal } from '@/services/dataGetter'
-
-const BASE_GIT_HUB_LINK = 'https://github.com/sneuder/'
-
-const buildGitHubLink = (path: string) => `${BASE_GIT_HUB_LINK}${path}`
 
 const projects: Project[] = [
   {
