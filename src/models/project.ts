@@ -6,6 +6,7 @@ export enum ProjectType {
   PACKAGE = 'Package',
   TOOL = 'Tool',
   PROPOSAL = 'Proposal',
+  CLI = 'CLI',
 }
 
 export enum ProjectLevel {

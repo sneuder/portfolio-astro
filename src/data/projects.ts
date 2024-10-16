@@ -14,20 +14,35 @@ import { getImageProjectFromLocal } from '@/services/dataGetter'
 const projects: Project[] = [
   {
     name: 'Project Builder',
-    description:
-      'Streamlines file system operations in Go. With functions for creating, reading, writing, and managing files, this package enhances file handling efficiency for developers.',
-    stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER, STACK_LIBRARIES.GRPC],
+    description: `This CLI tool simplifies managing Git configurations across multiple repositories. It is organized by 'Organizations,' each containing all the essential information, making it easy to switch between SSH credentials and repository settings.`,
+    stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER],
     image: await getImageProjectFromLocal('process'),
-    type: ProjectType.SASS,
+    type: ProjectType.CLI,
     links: [
       {
         icon: ICONS.GITHUB,
-        href: buildGitHubLink('projects-builder'),
+        href: buildGitHubLink('tig'),
       },
     ],
     level: ProjectLevel.PRIMARY,
     localLink: 'project-builder',
   },
+  // {
+  //   name: 'Project Builder',
+  //   description:
+  //     'Streamlines file system operations in Go. With functions for creating, reading, writing, and managing files, this package enhances file handling efficiency for developers.',
+  //   stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER, STACK_LIBRARIES.GRPC],
+  //   image: await getImageProjectFromLocal('process'),
+  //   type: ProjectType.SASS,
+  //   links: [
+  //     {
+  //       icon: ICONS.GITHUB,
+  //       href: buildGitHubLink('projects-builder'),
+  //     },
+  //   ],
+  //   level: ProjectLevel.PRIMARY,
+  //   localLink: 'project-builder',
+  // },
   {
     name: 'File System Go',
     description:
