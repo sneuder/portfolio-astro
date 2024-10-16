@@ -73,7 +73,7 @@ const dutiesList: ListProps = {
     <Paragraph title={dateParagraph.title} type={dateParagraph.type} />
   </div>
   <LinkLocal href={localLink} directPage='experience'>
-    <Header title={positionInfo.title} type={positionInfo.type} />
+    <Header {...positionInfo} />
   </LinkLocal>
 
   <Paragraph {...descriptionParagraph} />

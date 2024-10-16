@@ -16,7 +16,7 @@ import { IconsMapperName } from '@/constants/Icon'
 
 interface Props extends Project {}
 
-const { name, description, stack, image, links, type, localLink } = Astro.props
+const { name, description, stack, links, type, localLink } = Astro.props
 
 const headerProjectProps: HeaderProps = {
   title: name,
@@ -25,7 +25,7 @@ const headerProjectProps: HeaderProps = {
 
 const descriptionProjectProp: ParagraphProps = {
   title: description,
-  type: TypographyType.PRIMARY,
+  type: TypographyType.SECONDARY,
   style: {
     textAlign: 'justify',
   },
@@ -38,36 +38,37 @@ const projectType: TagProps = {
 ---
 
 <div class:list={['container']} id={localLink}>
-  <Image class='img' src={image} alt={name} width={200} height={113.9} />
   <div class='container-information'>
     <div class='container-header'>
       <Header {...headerProjectProps} />
-      <Tag {...projectType} />
+      <!-- <Tag {...projectType} /> -->
+
+      {
+        links.length !== 0 && (
+          <div class='container-links'>
+            {links.map((link) => {
+              const linkIconProjectProp: LinkIconProps = {
+                icon: {
+                  name: link.icon,
+                },
+                link: {
+                  href: link.href,
+                  newTab: true,
+                },
+                paragraph: {
+                  title: IconsMapperName[link.icon],
+                  type: TypographyType.TERTIARY,
+                },
+              }
+  
+              return <LinkIcon {...linkIconProjectProp} />
+            })}
+          </div>
+        )
+      }
     </div>
 
-    {
-      links.length !== 0 && (
-        <div class='container-links'>
-          {links.map((link) => {
-            const linkIconProjectProp: LinkIconProps = {
-              icon: {
-                name: link.icon,
-              },
-              link: {
-                href: link.href,
-                newTab: true,
-              },
-              paragraph: {
-                title: IconsMapperName[link.icon],
-                type: TypographyType.TERTIARY,
-              },
-            }
-
-            return <LinkIcon {...linkIconProjectProp} />
-          })}
-        </div>
-      )
-    }
+    
 
     <Paragraph {...descriptionProjectProp} />
 
@@ -121,6 +122,7 @@ const projectType: TagProps = {
 
   .container-stack {
     justify-content: space-between;
+    /* align-self: flex-end; */
     gap: 2rem;
     flex-wrap: wrap;
   }

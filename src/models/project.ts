@@ -23,7 +23,6 @@ export interface Project {
   name: string
   description: string
   stack: STACK[]
-  image: string
   type: ProjectType
   links: ProjectLink[]
   level: ProjectLevel

@@ -9,14 +9,11 @@ import {
 } from '@/models/stack'
 import { buildGitHubLink } from '@/services/builderLink'
 
-import { getImageProjectFromLocal } from '@/services/dataGetter'
-
 const projects: Project[] = [
   {
-    name: 'Project Builder',
-    description: `This CLI tool simplifies managing Git configurations across multiple repositories. It is organized by 'Organizations,' each containing all the essential information, making it easy to switch between SSH credentials and repository settings.`,
+    name: 'TIG',
+    description: `This CLI tool simplifies managing Git configurations across multiple repositories. It is organized by 'Organizations,' each containing all the essential information, making it easy to switch between SSH credentials and repository settings. Ideal for developers working with different credentials in various projects, this tool ensures seamless transitions and efficient workflow management.`,
     stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER],
-    image: await getImageProjectFromLocal('process'),
     type: ProjectType.CLI,
     links: [
       {
@@ -44,11 +41,10 @@ const projects: Project[] = [
   //   localLink: 'project-builder',
   // },
   {
-    name: 'File System Go',
+    name: 'File System',
     description:
-      'Streamlines file system operations in Go. With functions for creating, reading, writing, and managing files, this package enhances file handling efficiency for developers.',
+      'This Go package streamlines file system operations, offering a range of functions for creating, reading, writing, and managing files. Designed to enhance efficiency, it simplifies repetitive tasks and reduces boilerplate code, making file handling faster and more intuitive for developers. Ideal for seamless integration into larger projects.',
     stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER],
-    image: await getImageProjectFromLocal('file-system'),
     type: ProjectType.PACKAGE,
     links: [
       {
@@ -59,42 +55,40 @@ const projects: Project[] = [
     level: ProjectLevel.PRIMARY,
     localLink: 'file-system-go',
   },
-  {
-    name: 'CLI Workspace',
-    description:
-      'Swift Workspace Creator: Simplifies Docker workspaces for teams or individuals. Crafted with Go and Docker, it ensures portable coding environments for seamless collaborations or solo projects.',
-    stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER],
-    image: await getImageProjectFromLocal('cli-workspace'),
-    type: ProjectType.TOOL,
-    links: [
-      {
-        icon: ICONS.WEB,
-        href: 'https://workspace-page.vercel.app',
-      },
-      {
-        icon: ICONS.GITHUB,
-        href: buildGitHubLink('cli-workspace'),
-      },
-    ],
-    level: ProjectLevel.PRIMARY,
-    localLink: 'cli-workspace',
-  },
-  {
-    name: 'Uploader Service',
-    description:
-      'Created a backend service enabling secure file uploads while seamlessly storing associated data in the database. Implemented robust file handling and database integration for a streamlined user experience.',
-    stack: [STACK_LANGUAGES.GO, STACK_ORMS.GORM],
-    image: await getImageProjectFromLocal('uploader-service'),
-    type: ProjectType.SASS,
-    links: [
-      {
-        icon: ICONS.GITHUB,
-        href: buildGitHubLink('uploader-service'),
-      },
-    ],
-    level: ProjectLevel.PRIMARY,
-    localLink: 'uploader-service',
-  },
+  // {
+  //   name: 'CLI Workspace',
+  //   description:
+  //     'Swift Workspace Creator: Simplifies Docker workspaces for teams or individuals. Crafted with Go and Docker, it ensures portable coding environments for seamless collaborations or solo projects.',
+  //   stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER],
+  //   type: ProjectType.TOOL,
+  //   links: [
+  //     {
+  //       icon: ICONS.WEB,
+  //       href: 'https://workspace-page.vercel.app',
+  //     },
+  //     {
+  //       icon: ICONS.GITHUB,
+  //       href: buildGitHubLink('cli-workspace'),
+  //     },
+  //   ],
+  //   level: ProjectLevel.PRIMARY,
+  //   localLink: 'cli-workspace',
+  // },
+  // {
+  //   name: 'Uploader Service',
+  //   description:
+  //     'Created a backend service enabling secure file uploads while seamlessly storing associated data in the database. Implemented robust file handling and database integration for a streamlined user experience.',
+  //   stack: [STACK_LANGUAGES.GO, STACK_ORMS.GORM],
+  //   type: ProjectType.SASS,
+  //   links: [
+  //     {
+  //       icon: ICONS.GITHUB,
+  //       href: buildGitHubLink('uploader-service'),
+  //     },
+  //   ],
+  //   level: ProjectLevel.PRIMARY,
+  //   localLink: 'uploader-service',
+  // },
   {
     name: 'Encrypt Service',
     description:
@@ -104,7 +98,6 @@ const projects: Project[] = [
       STACK_LANGUAGES.TYPESCRIPT,
       STACK_FRAMEWORKS.EXPRESS,
     ],
-    image: await getImageProjectFromLocal('encrypt-service'),
     type: ProjectType.SASS,
     links: [
       {
@@ -128,7 +121,6 @@ const projects: Project[] = [
       STACK_FRAMEWORKS.NESTJS,
       STACK_ORMS.MONGOOSE,
     ],
-    image: await getImageProjectFromLocal('hotel-management'),
     type: ProjectType.SASS,
     links: [
       {
@@ -147,7 +139,6 @@ const projects: Project[] = [
       STACK_LIBRARIES.REACT,
       STACK_LIBRARIES.REDUX,
     ],
-    image: await getImageProjectFromLocal('weather'),
     type: ProjectType.TOOL,
     links: [
       {
@@ -170,7 +161,6 @@ const projects: Project[] = [
       STACK_LIBRARIES.REACT,
       STACK_LIBRARIES.GRAPHQL,
     ],
-    image: await getImageProjectFromLocal('rick-morty'),
     type: ProjectType.TOOL,
     links: [
       {
@@ -189,7 +179,6 @@ const projects: Project[] = [
     name: 'Chairá Login',
     description: '',
     stack: [STACK_LANGUAGES.JAVASCRIPT, STACK_LIBRARIES.REACT],
-    image: await getImageProjectFromLocal('login-chaira'),
     type: ProjectType.PROPOSAL,
     links: [
       {

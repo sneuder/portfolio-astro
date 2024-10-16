@@ -5,16 +5,15 @@ import Header, {
 
 import { TypographyType } from '@/shared/typography/schema'
 import { type Project } from '@/models/project'
-import Tag, { type Props as TagProps, TAG_TYPE } from '../tag/Tag.astro'
 import COLORS from '@/theme/colors'
 import CardBase from '@/shared/cards/CardBase.astro'
-import { IconsMapperName } from '@/constants/Icon'
+import { ICONS, IconsMapperName } from '@/constants/Icon'
 import LinkIcon, { type Props as LinkIconProps } from '@/shared/link/LinkIcon.astro'
 import LinkLocal from '@/shared/link/LinkLocal.astro'
 
 interface Props extends Pick<Project, 'name' | 'type' | 'links' | 'localLink'> {}
 
-const { name, type, links, localLink } = Astro.props
+const { name, links, localLink } = Astro.props
 
 const projectHeader: HeaderProps = {
   title: name,
@@ -24,10 +23,7 @@ const projectHeader: HeaderProps = {
   }
 }
 
-const projectType: TagProps = {
-  title: type,
-  type: TAG_TYPE.QUATERNARY,
-}
+const linkProject = links.find(link => link.icon === ICONS.WEB || link.icon === ICONS.GITHUB)
 ---
 
 <CardBase backgroundColor={COLORS.LIGHTER_GREY}>
@@ -40,32 +36,27 @@ const projectType: TagProps = {
           format={projectHeader.format}
         />
       </LinkLocal>
-      <Tag {...projectType} />
+
+      {
+        linkProject && (
+          <div class='container-links'>
+            <LinkIcon {...{
+                icon: {
+                  name: linkProject.icon,
+                },
+                link: {
+                  href: linkProject.href,
+                  newTab: true,
+                },
+                paragraph: {
+                  title: IconsMapperName[linkProject.icon],
+                  type: TypographyType.TERTIARY,
+                },
+              }} />
+          </div>
+        )
+      }
     </div>
-
-    {
-      links.length !== 0 && (
-        <div class='container-links'>
-          {links.map((link) => {
-            const linkIconsProps: LinkIconProps = {
-              icon: {
-                name: link.icon,
-              },
-              link: {
-                href: link.href,
-                newTab: true,
-              },
-              paragraph: {
-                title: IconsMapperName[link.icon],
-                type: TypographyType.TERTIARY,
-              },
-            }
-
-            return <LinkIcon {...linkIconsProps} />
-          })}
-        </div>
-      )
-    }
   </div>
 </CardBase>
 
@@ -81,7 +72,7 @@ const projectType: TagProps = {
     display: flex;
     justify-content: space-between;
     gap: 2rem;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .container-links {

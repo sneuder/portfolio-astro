@@ -17,12 +17,7 @@ const tableProjectsProps: TableProps = {
     },
     {
       name: 'Built with',
-      width: '350px',
-      hideMobile: true
-    },
-    {
-      name: 'Type',
-      width: '80px',
+      width: '450px',
       hideMobile: true
     },
     {
@@ -44,15 +39,6 @@ projects.forEach((project) => {
         props: {
           stack: project.stack,
           type: TAG_TYPE.SECONDARY,
-        },
-      },
-    },
-    {
-      component: {
-        Component: Tag,
-        props: {
-          title: project.type,
-          type: TAG_TYPE.TERTIARY,
         },
       },
     },
