@@ -11,6 +11,20 @@ import { buildGitHubLink } from '@/services/builderLink'
 
 const projects: Project[] = [
   {
+    name: 'Workspace',
+    description: 'Workspace is a CLI tool that streamlines container management for developers working within Docker environments. With Workspace, you can set a default container for quick access, add or remove containers from your workspace, and execute any command on the default container directly, all from a single interface. This tool is designed to simplify interactions with containers, making it easier to configure and manage your development environment efficiently.',
+    stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER],
+    type: ProjectType.CLI,
+    links: [
+      {
+        icon: ICONS.GITHUB,
+        href: buildGitHubLink('workspace'),
+      },
+    ],
+    level: ProjectLevel.PRIMARY,
+    localLink: 'workspace',
+  },
+  {
     name: 'TIG',
     description: `This CLI tool simplifies managing Git configurations across multiple repositories. It is organized by 'Organizations,' each containing all the essential information, making it easy to switch between SSH credentials and repository settings. Ideal for developers working with different credentials in various projects, this tool ensures seamless transitions and efficient workflow management.`,
     stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER],
@@ -22,24 +36,8 @@ const projects: Project[] = [
       },
     ],
     level: ProjectLevel.PRIMARY,
-    localLink: 'project-builder',
+    localLink: 'tig',
   },
-  // {
-  //   name: 'Project Builder',
-  //   description:
-  //     'Streamlines file system operations in Go. With functions for creating, reading, writing, and managing files, this package enhances file handling efficiency for developers.',
-  //   stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER, STACK_LIBRARIES.GRPC],
-  //   image: await getImageProjectFromLocal('process'),
-  //   type: ProjectType.SASS,
-  //   links: [
-  //     {
-  //       icon: ICONS.GITHUB,
-  //       href: buildGitHubLink('projects-builder'),
-  //     },
-  //   ],
-  //   level: ProjectLevel.PRIMARY,
-  //   localLink: 'project-builder',
-  // },
   {
     name: 'File System',
     description:
@@ -55,40 +53,6 @@ const projects: Project[] = [
     level: ProjectLevel.PRIMARY,
     localLink: 'file-system-go',
   },
-  // {
-  //   name: 'CLI Workspace',
-  //   description:
-  //     'Swift Workspace Creator: Simplifies Docker workspaces for teams or individuals. Crafted with Go and Docker, it ensures portable coding environments for seamless collaborations or solo projects.',
-  //   stack: [STACK_LANGUAGES.GO, STACK_TOOLS.DOCKER],
-  //   type: ProjectType.TOOL,
-  //   links: [
-  //     {
-  //       icon: ICONS.WEB,
-  //       href: 'https://workspace-page.vercel.app',
-  //     },
-  //     {
-  //       icon: ICONS.GITHUB,
-  //       href: buildGitHubLink('cli-workspace'),
-  //     },
-  //   ],
-  //   level: ProjectLevel.PRIMARY,
-  //   localLink: 'cli-workspace',
-  // },
-  // {
-  //   name: 'Uploader Service',
-  //   description:
-  //     'Created a backend service enabling secure file uploads while seamlessly storing associated data in the database. Implemented robust file handling and database integration for a streamlined user experience.',
-  //   stack: [STACK_LANGUAGES.GO, STACK_ORMS.GORM],
-  //   type: ProjectType.SASS,
-  //   links: [
-  //     {
-  //       icon: ICONS.GITHUB,
-  //       href: buildGitHubLink('uploader-service'),
-  //     },
-  //   ],
-  //   level: ProjectLevel.PRIMARY,
-  //   localLink: 'uploader-service',
-  // },
   {
     name: 'Encrypt Service',
     description:
