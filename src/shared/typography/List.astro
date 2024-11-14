@@ -15,13 +15,17 @@ const ListTag = type === LIST_TYPE.ORDER ? 'ol' : 'ul'
 ---
 
 <ListTag>
-  {list.map((item) => <li>{item}</li>)}
+  {list.map((item) => <li>- {item}</li>)}
 </ListTag>
 
 <style define:vars={{ color: COLORS.GREY }}>
   ol,
   ul {
     list-style-position: inside;
+    list-style-type: none;
+
+    display: flex;
+    flex-wrap: wrap;
 
     li {
       font-size: 0.8rem;

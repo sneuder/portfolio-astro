@@ -1,11 +1,16 @@
 ---
 import { TypographyType } from '@/shared/typography/schema'
 import Heroe, { type Props as HeroeProps } from '@/shared/layouts/Heroe.astro'
+import { Image } from 'astro:assets'
+import { getImageBrandFromLocal } from '@/services/dataGetter'
 
 const heroeProps: HeroeProps = {
   header: {
-    title: 'About My Journey and Experience',
+    title: 'Reflections on My Journey: Growth, Challenges, and Lessons Learned',
     type: TypographyType.PRIMARY,
+    style: {
+      lineHeight: '4rem',
+    }
   },
   paragraph: {
     title:
@@ -16,6 +21,16 @@ const heroeProps: HeroeProps = {
     },
   },
 }
+
+const srcImage = await getImageBrandFromLocal('banner-experience')
+
 ---
 
-<Heroe {...heroeProps} />
+<Heroe {...heroeProps} >
+  <Image slot={"AFTER"} src={srcImage} alt={"banner-experience"} width={854} height={480} style={{
+    width: '100%',
+    height: '80px',
+    objectFit: 'cover',
+    borderRadius: '0.5rem',
+  }}/>
+</Heroe>

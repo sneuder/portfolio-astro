@@ -1,5 +1,4 @@
 ---
-import { Image } from 'astro:assets'
 import type { Project } from '@/models/project'
 import Paragraph, {
   type Props as ParagraphProps,
@@ -8,11 +7,12 @@ import Header, {
   type Props as HeaderProps,
 } from '@/shared/typography/Header.astro'
 import { TypographyType } from '@/shared/typography/schema'
-import Tag, { TAG_TYPE, type Props as TagProps } from '../tag/Tag.astro'
+import Tag from '../tag/Tag.astro'
 import LinkIcon, {
   type Props as LinkIconProps,
 } from '@/shared/link/LinkIcon.astro'
 import { IconsMapperName } from '@/constants/Icon'
+import CardBase from '../cards/CardBase.astro'
 
 interface Props extends Project {}
 
@@ -31,68 +31,50 @@ const descriptionProjectProp: ParagraphProps = {
   },
 }
 
-const projectType: TagProps = {
-  title: type,
-  type: TAG_TYPE.QUATERNARY,
-}
 ---
-
-<div class:list={['container']} id={localLink}>
-  <div class='container-information'>
-    <div class='container-header'>
-      <Header {...headerProjectProps} />
-      <!-- <Tag {...projectType} /> -->
-
-      {
-        links.length !== 0 && (
-          <div class='container-links'>
-            {links.map((link) => {
-              const linkIconProjectProp: LinkIconProps = {
-                icon: {
-                  name: link.icon,
-                },
-                link: {
-                  href: link.href,
-                  newTab: true,
-                },
-                paragraph: {
-                  title: IconsMapperName[link.icon],
-                  type: TypographyType.TERTIARY,
-                },
-              }
+<CardBase padding='2rem'>
+  <div class:list={['container']} id={localLink}>
+    <div class='container-information'>
+      <div class='container-header'>
+        <Header {...headerProjectProps} />
   
-              return <LinkIcon {...linkIconProjectProp} />
-            })}
-          </div>
-        )
-      }
-    </div>
-
+        {
+          links.length !== 0 && (
+            <div class='container-links'>
+              {links.map((link) => {
+                const linkIconProjectProp: LinkIconProps = {
+                  icon: {
+                    name: link.icon,
+                  },
+                  link: {
+                    href: link.href,
+                    newTab: true,
+                  },
+                  paragraph: {
+                    title: IconsMapperName[link.icon],
+                    type: TypographyType.TERTIARY,
+                  },
+                }
     
-
-    <Paragraph {...descriptionProjectProp} />
-
-    <div class='container-stack'>
-      <div class='stack'>
-        {stack.map((s) => <Tag title={s} />)}
+                return <LinkIcon {...linkIconProjectProp} />
+              })}
+            </div>
+          )
+        }
+      </div>
+  
+      <Paragraph {...descriptionProjectProp} />
+  
+      <div class='container-stack'>
+        <div class='stack'>
+          {stack.map((s) => <Tag title={s} />)}
+        </div>
       </div>
     </div>
   </div>
-</div>
+</CardBase>
 
 <style>
-  .img {
-    max-width: 100%;
-    width: 200px;
-    aspect-ratio: 200 / 114 !important;
-    border-radius: 0.25rem;
-    object-fit: cover;
-
-    @media screen and (max-width: 600px) {
-      height: auto;
-      width: 100%;
-    }
-  }
 
   .container {
     display: flex;
@@ -132,5 +114,6 @@ const projectType: TagProps = {
     gap: 1rem;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 0.75rem;
   }
 </style>
