@@ -12,7 +12,7 @@ const experience: Experience[] = [
   {
     companyName: 'TorneosGG',
     lastPosition: {
-      name: Position.FD,
+      name: Position.FSD,
       from: new Date('2024-01-01'),
       to: new Date('2024-05-30'),
       responsabilities: [
@@ -92,7 +92,7 @@ const experience: Experience[] = [
   {
     companyName: 'Blockdemy',
     lastPosition: {
-      name: Position.FD,
+      name: Position.FSD,
       from: new Date('2022-05-01'),
       to: new Date('2022-11-30'),
       responsabilities: [
@@ -130,7 +130,7 @@ const experience: Experience[] = [
   {
     companyName: 'Amazonias RGA',
     lastPosition: {
-      name: Position.FSD,
+      name: Position.SD,
       from: new Date('2021-01-01'),
       to: new Date('2022-02-29'),
       responsabilities: [
