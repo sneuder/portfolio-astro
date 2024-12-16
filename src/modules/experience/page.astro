@@ -1,12 +1,17 @@
 ---
-import Layout from "@/shared/layouts/Layout.astro";
-import LayoutPage from "@/shared/layouts/LayoutPage.astro";
-import FullExperience from "./sections/FullExperience.astro"
-import Presentation from "./sections/Presentation.astro";
-import LineDivider from "@/shared/LineDivider.astro";
+import Layout from '@/shared/layouts/Layout.astro'
+import LayoutPage from '@/shared/layouts/LayoutPage.astro'
+import FullExperience from './sections/FullExperience.astro'
+import Presentation from './sections/Presentation.astro'
+import LineDivider from '@/shared/LineDivider.astro'
+import { getImageBrandFromLocal } from '@/services/dataGetter'
+
+const srcBannerExperience = await getImageBrandFromLocal('banner-experience')
 ---
 
-<Layout title="Experience">
+<Layout
+  title='Experience'
+  preloads={[{ href: srcBannerExperience, as: 'image' }]}>
   <LayoutPage>
     <Presentation />
     <LineDivider />

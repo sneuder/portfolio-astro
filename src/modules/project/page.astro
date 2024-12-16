@@ -1,14 +1,17 @@
 ---
-import Layout from "@/shared/layouts/Layout.astro";
-import LayoutPage from "@/shared/layouts/LayoutPage.astro";
-import Presentation from "./sections/Presentation.astro";
-import Projects from "./sections/Projects.astro";
-import RestProjects from "./sections/restProjects/RestProjects.astro";
-import LineDivider from "@/shared/LineDivider.astro";
+import Layout from '@/shared/layouts/Layout.astro'
+import LayoutPage from '@/shared/layouts/LayoutPage.astro'
+import Presentation from './sections/Presentation.astro'
+import Projects from './sections/Projects.astro'
+import RestProjects from './sections/restProjects/RestProjects.astro'
+import LineDivider from '@/shared/LineDivider.astro'
 
+import { getImageBrandFromLocal } from '@/services/dataGetter'
+
+const srcBannerProjects = await getImageBrandFromLocal('banner-projects')
 ---
 
-<Layout title="Projects">
+<Layout title='Projects' preloads={[{ href: srcBannerProjects, as: 'image' }]}>
   <LayoutPage>
     <Presentation />
     <LineDivider />
@@ -18,6 +21,4 @@ import LineDivider from "@/shared/LineDivider.astro";
   </LayoutPage>
 </Layout>
 
-<style>
- 
-</style>
+<style></style>
