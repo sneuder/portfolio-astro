@@ -60,6 +60,10 @@ export enum STACK_PLATFORMS {
   WORDPRESS = 'WordPress',
 }
 
+export enum STACK_SERVICES {
+  AWS = 'AWS',
+}
+
 export type STACK =
   | STACK_LANGUAGES
   | STACK_ORMS
@@ -68,6 +72,7 @@ export type STACK =
   | STACK_LIBRARIES
   | STACK_TOOLS
   | STACK_PLATFORMS
+  | STACK_SERVICES
 
 //
 

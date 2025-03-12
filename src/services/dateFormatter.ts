@@ -1,11 +1,15 @@
-export const formatDateRange = (startDate: Date, endDate: Date) => {
+export const formatDateRange = (startDate: Date, endDate?: Date) => {
   const start = new Date(startDate)
-  const end = new Date(endDate)
 
   const startMonth = start.toLocaleString('en-US', {
     month: 'short',
     timeZone: 'UTC',
   })
+
+  if (!endDate)
+    return `${startMonth} ${start.getFullYear()} - Present`
+
+  const end = new Date(endDate)
 
   const endMonth = end.toLocaleString('en-US', {
     month: 'short',

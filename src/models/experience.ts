@@ -10,7 +10,7 @@ export enum Position {
 export interface Positon {
   name: Position
   from: Date
-  to: Date
+  to?: Date
   responsabilities: Responsabilies[]
 }
 

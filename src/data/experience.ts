@@ -6,9 +6,32 @@ import {
   STACK_LIBRARIES,
   STACK_ORMS,
   STACK_PLATFORMS,
+  STACK_SERVICES
 } from '@/models/stack'
 
 const experience: Experience[] = [
+  {
+    companyName: 'Mobohubb',
+    lastPosition: {
+      name: Position.SD,
+      from: new Date('2024-07-01'),
+      responsabilities: [
+
+      ],
+    },
+    oldPositions: [],
+    generalDescription:
+      'I work on a employee monitoring software, providing bug fixes, feature development, and report generation to ensure system stability and performance. I actively contributed to project structure discussions, offering guidance on best practices and efficient feature implementation. Additionally, I supported other developers by mentoring, assigning tasks, and leading issue resolution efforts to maintain project quality and stability.',
+    mainStack: [
+      STACK_SERVICES.AWS,
+      STACK_LANGUAGES.NODE,
+      STACK_LANGUAGES.TYPESCRIPT,
+      STACK_FRAMEWORKS.NESTJS,
+      STACK_LIBRARIES.REDUX
+    ],
+    restStack: [],
+    localLink: 'mobohubb',
+  },
   {
     companyName: 'TorneosGG',
     lastPosition: {
