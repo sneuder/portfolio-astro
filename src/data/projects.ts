@@ -65,12 +65,8 @@ const projects: Project[] = [
     type: ProjectType.SASS,
     links: [
       {
-        icon: ICONS.WEB,
-        href: 'https://workspace-page.vercel.app',
-      },
-      {
         icon: ICONS.GITHUB,
-        href: buildGitHubLink('cli-workspace'),
+        href: buildGitHubLink('encrypt-words-back'),
       },
     ],
     level: ProjectLevel.SECONDARY,

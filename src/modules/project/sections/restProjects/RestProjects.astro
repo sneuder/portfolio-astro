@@ -3,7 +3,9 @@ import Header, {
   type Props as HeaderProps,
 } from '@/shared/typography/Header.astro'
 import { TypographyType } from '@/shared/typography/schema'
-import TableProjects from './components/TableProjects.astro'
+import projects from '@/data/projects'
+import ProjectMiniItem from '@/shared/items/ProjectMiniItem.astro'
+import { ProjectLevel } from '@/models/project'
 
 const headerProjectsProps: HeaderProps = {
   title: 'Other projects',
@@ -13,12 +15,26 @@ const headerProjectsProps: HeaderProps = {
 
 <section>
   <Header {...headerProjectsProps} />
-  <TableProjects />
+
+  <div class='cont'>
+    {
+      projects.map((project) => {
+        if (project.level === ProjectLevel.PRIMARY) return
+        return <ProjectMiniItem {...project} />
+      })
+    }
+  </div>
 </section>
 
 <style>
   section {
     display: grid;
     gap: 2rem;
+
+    & div {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+    }
   }
 </style>
